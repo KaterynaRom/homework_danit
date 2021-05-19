@@ -1,5 +1,5 @@
-.idea/**/*
- .vscode
- .DS_Store
- *.xml
- *.iml
+.idea
+.vscode
+.DS_Store
+*.xml
+*.iml
