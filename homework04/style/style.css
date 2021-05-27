@@ -65,7 +65,7 @@
 /*section latest news*/
 .latest-news{
     background-image: url("../img/header-bg.jpg");
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat
 
 }
@@ -125,8 +125,9 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    align-content: center;
     max-height: 898px;
-    column-gap: 30px;
+    column-gap: 15px;
     row-gap: 30px;
     margin: 0 365px;
     padding-bottom: 72px;
