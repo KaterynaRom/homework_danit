@@ -12,10 +12,18 @@
 }
 
 .title {
+    color: #4BCAFF;
+    font-size: 80px;
+    line-height: 94px;
+    text-decoration: none;
     display: flex;
-    align-items: flex-start;
-    margin-top: 60px;
-    margin-bottom: 38px;
+    justify-content: flex-start;
+    padding-top: 60px;
+    padding-bottom: 38px;
+}
+
+.title-syllable{
+    color: #000000;
 }
 
 .navigation-menu {
@@ -29,12 +37,13 @@
 
 .navigation-menu-item {
     display: inline-block;
-    padding: 26px 33px 19px 32px;
     border-left: 1px solid white;
 }
 
 .navigation-menu-link {
+    display: flex;
     text-decoration: none;
+    padding: 26px 33px 19px 32px;
     color: #FFFFFF;
 }
 
@@ -49,7 +58,6 @@
 .sidebar-box {
     display: flex;
     border: 1px solid black;
-    width: 345px;
     height: 400px;
 }
 
@@ -58,7 +66,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    padding-left: 44px;
+    width: 345px;
 }
 
 .sidebar-menu-item{
@@ -70,6 +78,7 @@
 .sidebar-menu-link {
     text-decoration: none;
     color: #495863;
+    padding: 27px 44px;
 }
 
 .content-box{
@@ -104,20 +113,19 @@
 .footer-menu{
     display: flex;
     align-items: center;
-    height: 69px;
+    height: 70px;
 }
 
 .footer-menu-item{
     display: inline-block;
-    font-size: 28px;
-    line-height: 28px;
-    padding-right: 65px;
-    padding-left: 20px;
 }
 
 .footer-menu-link {
     text-decoration: none;
     color: #0C1927;
+    font-size: 28px;
+    line-height: 28px;
+   padding: 21px 40px;
 }
 
 .footer-text{
