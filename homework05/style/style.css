@@ -6,7 +6,7 @@
     background-repeat: no-repeat;
     padding-top: 50px;
     padding-bottom: 15px;
-    min-height: 100vh
+    min-height: 100vh;
 }
 
 .container {
@@ -14,27 +14,27 @@
     margin: 0 auto;
 }
 
-.contacts{
-
-}
-
 .contacts-box{
     display: flex;
     justify-content: space-between;
 }
 
-.logo{
-
+.logo:hover .logo-title{
+    color: #F26522;
 }
 
 .logo-box{
     display: flex;
-
 }
 
 .logo-img{
-    width: 43px;
+    width: 53px;
     height: 47px;
+    background: url("../img/logo-white.png");
+}
+
+.logo:hover .logo-img{
+    background: url("../img/logo-orange.png");
 }
 
 .logo-title{
@@ -68,19 +68,15 @@
     line-height: 18px;
 }
 
+.contacts-links a:hover {
+    color: #F26522;
+}
+
 .contacts-links a:first-child {
     margin-bottom: 19px;
 }
 
-.contacts-link-mail{
-
-}
-
-.contacts-link-tel{
-
-}
-
-/*MAIN STYLE*/
+/****MAIN****/
 
 .card{
     display: grid;
@@ -90,14 +86,13 @@
     margin-top: 17px;
 }
 
-.card-box{
-    grid-column: span 1;
+.card-link{
     display: flex;
     flex-direction: column;
 }
 
-
-.card-img{
+.card-box{
+    grid-column: span 1;
     position: relative;
     height: 220px;
     overflow: hidden;
@@ -115,10 +110,10 @@
     display: flex;
     justify-content: space-between;
     padding: 7px 15px 12px;
+    box-sizing: border-box;
 }
 
-.price>a {
-    color: #FFFFFF;
+.price>p {
     font-size: 14px;
     line-height: 14px;
     align-self: flex-end;
@@ -135,14 +130,14 @@
     margin-bottom: 7px;
 }
 
-.card-img:hover .price {
+.card-link:hover .price {
     top: 165px;
-    transform: scale(1);
-
+    width: 100%;
 }
 
-
-
+.card-link:hover .card-text{
+    color: #F26522;
+}
 
 .card-text{
     color: #FFFFFF;
@@ -150,7 +145,6 @@
     line-height: 18px;
     margin: 20px auto;
 }
-
 
 .copyright{
     display: grid;
