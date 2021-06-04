@@ -1,0 +1,162 @@
+
+.wrapper{
+    font-family: 'Montserrat', sans-serif;
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 50px;
+    padding-bottom: 15px;
+    min-height: 100vh
+}
+
+.container {
+    width: 1030px;
+    margin: 0 auto;
+}
+
+.contacts{
+
+}
+
+.contacts-box{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+
+}
+
+.logo-box{
+    display: flex;
+
+}
+
+.logo-img{
+    width: 43px;
+    height: 47px;
+}
+
+.logo-title{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: #FFFFFF;
+    font-weight: bold;
+    font-size: 29px;
+    line-height: 24px;
+    margin-left: 4px;
+}
+
+.logo-title-small{
+    font-size: 18px;
+    line-height: 14px;
+}
+
+.contacts-links{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.contacts-links>a{
+    display: flex;
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.contacts-links a:first-child {
+    margin-bottom: 19px;
+}
+
+.contacts-link-mail{
+
+}
+
+.contacts-link-tel{
+
+}
+
+/*MAIN STYLE*/
+
+.card{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 17px;
+    column-gap: 65px;
+    margin-top: 17px;
+}
+
+.card-box{
+    grid-column: span 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.card-img{
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.price{
+    position: absolute;
+    top: 100%;
+    background: #F26522;
+    transform: scale(1);
+    transition: top 0.3s, transform 0.3s;
+    color: #FFFFFF;
+    font-size: 20px;
+    line-height: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 15px 12px;
+}
+
+.price>a {
+    color: #FFFFFF;
+    font-size: 14px;
+    line-height: 14px;
+    align-self: flex-end;
+}
+
+.card-price{
+    display: flex;
+    flex-direction: column;
+}
+
+.card-price p:first-child{
+    font-size: 10px;
+    line-height: 10px;
+    margin-bottom: 7px;
+}
+
+.card-img:hover .price {
+    top: 165px;
+    transform: scale(1);
+
+}
+
+
+
+
+.card-text{
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 18px;
+    margin: 20px auto;
+}
+
+
+.copyright{
+    display: grid;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 12px;
+    line-height: 12px;
+    margin: 30px;
+}
