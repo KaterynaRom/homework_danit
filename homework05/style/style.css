@@ -14,6 +14,8 @@
     margin: 0 auto;
 }
 
+/****HEADER****/
+
 .contacts-box{
     display: flex;
     justify-content: space-between;
@@ -27,14 +29,8 @@
     display: flex;
 }
 
-.logo-img{
-    width: 53px;
-    height: 47px;
-    background: url("../img/logo-white.png");
-}
-
 .logo:hover .logo-img{
-    background: url("../img/logo-orange.png");
+    content: url("../img/logo-orange.png");
 }
 
 .logo-title{
@@ -102,8 +98,7 @@
     position: absolute;
     top: 100%;
     background: #F26522;
-    transform: scale(1);
-    transition: top 0.3s, transform 0.3s;
+    transition: top 0.5s, transform 0.5s;
     color: #FFFFFF;
     font-size: 20px;
     line-height: 20px;
@@ -119,7 +114,10 @@
     align-self: flex-end;
 }
 
-/*сюда***********/
+.card-details::after{
+    content: url("../img/arrow.svg");
+    margin-left: 16px;
+}
 
 .card-price{
     display: flex;
@@ -147,6 +145,8 @@
     line-height: 18px;
     margin: 20px auto;
 }
+
+/****FOOTER****/
 
 .copyright{
     display: grid;
