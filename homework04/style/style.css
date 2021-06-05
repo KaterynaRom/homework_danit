@@ -64,6 +64,8 @@
 
 .latest-news {
     background-image: url("../img/header-bg.jpg");
+    padding-top: 160px;
+    padding-bottom: 70px;
 }
 
 .background{
@@ -76,26 +78,13 @@
     text-transform: uppercase;
     font-size: 27px;
     line-height: 37px;
-    padding-top: 160px;
 }
 
 .latest-news-menu{
     display: flex;
     justify-content: center;
 }
-.latest-news-items{
-    background-color: #14B9D5;
-    border-radius: 4px;
-    margin-top: 44px;
-    margin-bottom: 70px;
-    width: 170px;
-}
 
-.subscribe{
-    background-color: #89CA62;
-    margin-right: 20px;
-
-}
 .latest-news-link{
     display: block;
     color: #FFFFFF;
@@ -103,6 +92,15 @@
     line-height: 25px;
     padding-top: 16px;
     padding-bottom: 17px;
+    background-color: #14B9D5;
+    border-radius: 4px;
+    margin-top: 44px;
+    width: 170px;
+}
+
+.subscribe{
+    background-color: #89CA62;
+    margin-right: 20px;
 }
 
 /*section popular posts*/
@@ -127,9 +125,8 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    align-content: center;
+    align-content: space-between;
     max-height: 898px;
-    column-gap: 15px;
     row-gap: 30px;
     margin: 0 365px;
     padding-bottom: 72px;
@@ -238,11 +235,12 @@
     grid-row: span 1;
 }
 
-
 .small-card{
     max-width: 277px;
     grid-column: span 1;
+    margin: 14px auto;
 }
+
 
 .news-card-title{
     color: #353A3D;
@@ -252,6 +250,11 @@
     text-align: end;
     margin: 14px 25px 15px auto;
     align-self: center;
+}
+
+.small-card>h3{
+    margin: 14px auto;
+    text-align: center;
 }
 
 .news-card-text{

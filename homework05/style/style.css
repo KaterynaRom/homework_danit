@@ -113,11 +113,13 @@
     box-sizing: border-box;
 }
 
-.price>p {
+.card-details{
     font-size: 14px;
     line-height: 14px;
     align-self: flex-end;
 }
+
+/*сюда***********/
 
 .card-price{
     display: flex;
