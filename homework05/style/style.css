@@ -97,6 +97,7 @@
 .price{
     position: absolute;
     top: 100%;
+    width: 100%;
     background: #F26522;
     transition: top 0.5s, transform 0.5s;
     color: #FFFFFF;
