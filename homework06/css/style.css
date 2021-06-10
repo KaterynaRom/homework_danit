@@ -1,11 +1,16 @@
 
 .wrapper{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     background: url("../img/background.jpg") no-repeat;
     background-size: cover;
     min-height: 100vh;
-    /*transition: all 0.5s linear;*/
 }
+
+.slow *{
+    transition: all 0.5s linear
+}
+
+
 
 /*HEAD STYLE*/
 
@@ -38,11 +43,9 @@
 
 .icons{
     display: flex;
-    justify-content: space-between;
 }
 
 .icons::after {
-    display: flex;
     content: "";
     width: 1px;
     height: 19px;
@@ -61,7 +64,7 @@
 }
 
 .nav-menu-link{
-    padding: 22px 0;
+    padding: 18px 0;
 }
 
 .nav-menu-link:hover{
@@ -86,6 +89,7 @@
     box-sizing: border-box;
     position: relative;
 }
+
 .window::before {
     content: '';
     position: absolute;
@@ -97,11 +101,11 @@
 }
 
 .window-content{
-    width: 100%;
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
 }
+
 .window-content>a {
     color: #235D47;
     align-self: flex-end;
@@ -112,8 +116,6 @@
     line-height: 20px;
     color: #434343;
 }
-
-
 
 .button-box{
     display: flex;
@@ -146,6 +148,14 @@
     opacity: 0.1;
 }
 
+.button:hover{
+    background: #022263;
+}
+
+.button-box a:last-child:hover{
+    background: #AB1F09;
+}
+
 .button-text{
     display: flex;
     align-items: center;
@@ -175,6 +185,7 @@
     height: 1px;
     background: #F2F2F2;
 }
+
 .window-text::after{
     display: block;
     content: "";
@@ -185,7 +196,6 @@
     height: 1px;
     background: #F2F2F2;
 }
-
 
 .form-box{
     display: flex;
@@ -200,22 +210,36 @@
     border-radius: 4px;
 }
 
+.form-field:focus{
+    color: #434343;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.21);
+}
+
 .form-box>.text{
     color: #434343;
 }
-/*form-button{*/
-/*    display: flex;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*}*/
 
 .form-link{
     color: #3CB878;
+}
+
+.form-link:hover{
+    color: #01813F;
+    text-decoration: underline;
+}
+
+.form-box>label{
+    cursor: pointer;
 }
 
 .form-box input:last-child{
     width: 100%;
     background: rgba(60, 184, 120, 0.8);
     justify-content: center;
+    margin: 20px 0;
+}
+
+.form-box input:last-child:hover{
+    background: #01813F;
 }
 
