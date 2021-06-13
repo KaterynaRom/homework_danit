@@ -6,6 +6,27 @@
     margin: 0 auto;
 }
 
+.title {
+    color: #FFFFFF;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 27px;
+    line-height: 37px;
+    padding-top: 49px;
+    padding-bottom: 52px;;
+}
+
+.title-blue{
+    color: #18B4CF;
+}
+
+.card-title{
+    color: #353A3D;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 25px;
+}
+
 /*HEADER STYLE*/
 
 .navigation{
@@ -73,13 +94,6 @@
     background-repeat: no-repeat;
 }
 
-.latest-news-title {
-    color: #FFFFFF;
-    text-transform: uppercase;
-    font-size: 27px;
-    line-height: 37px;
-}
-
 .latest-news-menu{
     display: flex;
     justify-content: center;
@@ -107,18 +121,6 @@
 
 .popular-posts{
     background: #F2F2F2;
-    margin: 0 auto;
-
-}
-
-.content-subtitle{
-    color: #18B4CF;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: 27px;
-    line-height: 37px;
-    padding-top: 49px;
-    padding-bottom: 52px;
 }
 
 .blog-container {
@@ -133,16 +135,11 @@
 }
 
 .blog-card{
-    margin: 0 auto;
     width: 370px;
     background: #FFFFFF;
 }
 
-.blog-card-text {
-    color: #353A3D;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 25px;
+.blog-card>p{
     padding-top: 20px;
     padding-bottom: 22px;
 }
@@ -155,14 +152,12 @@
     padding-bottom: 190px;
 }
 
-.popular-clients-title {
-    color: #FFFFFF;
-    text-transform: uppercase;
-    font-weight: bold;
+.popular-clients>h2{
     font-size: 32px;
     line-height: 44px;
 }
-.popular-clients-title::after {
+
+.popular-clients>h2::after {
     display: block;
     content: "";
     width: 60px;
@@ -208,7 +203,7 @@
 }
 
 .container{
-    width: 1170px;
+    max-width: 1170px;
     margin: 0 auto;
 }
 
@@ -217,6 +212,7 @@
     grid-column: span 2;
     background: #F9F7F7;
 }
+
 .big-card{
     max-width: 856px;
     height: 259px;
@@ -225,12 +221,15 @@
     grid-template-columns: 483px auto;
     grid-template-rows: 79px auto;
 }
+
 .big-card>img{
     grid-row: span 2;
 }
+
 .big-card>h3 {
     grid-row: span 1;
 }
+
 .big-card>p {
     grid-row: span 1;
 }
@@ -238,15 +237,9 @@
 .small-card{
     max-width: 277px;
     grid-column: span 1;
-    margin: 14px auto;
 }
 
-
-.news-card-title{
-    color: #353A3D;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 25px;
+.hot-news-card>h3{
     text-align: end;
     margin: 14px 25px 15px auto;
     align-self: center;
