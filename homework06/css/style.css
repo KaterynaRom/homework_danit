@@ -7,10 +7,8 @@
 }
 
 .slow *{
-    transition: all 0.5s linear
+    transition: all 0.5s linear;
 }
-
-
 
 /*HEAD STYLE*/
 
@@ -107,9 +105,14 @@
 }
 
 .window-content>a {
-    color: #235D47;
+    color: #3CB878;
     align-self: flex-end;
 }
+
+/*.window-content>a:hover {*/
+/*    color:#01813F;*/
+/*    text-decoration: underline;*/
+/*}*/
 
 .window-title{
     font-size: 20px;
@@ -219,11 +222,15 @@
     color: #434343;
 }
 
+.form-check{
+    font-family: Verdana, sans-serif;
+}
+
 .form-link{
     color: #3CB878;
 }
 
-.form-link:hover{
+.form-link,.window-content>a:hover{
     color: #01813F;
     text-decoration: underline;
 }
