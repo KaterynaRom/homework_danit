@@ -198,8 +198,9 @@
 .hot-news-box{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    row-gap: 35px;
-    column-gap: 45px;
+    row-gap: 45px;
+    column-gap: 35px;
+    justify-content: space-between;
 }
 
 .container{
@@ -211,6 +212,10 @@
     max-width: 554px;
     grid-column: span 2;
     background: #F9F7F7;
+}
+
+.hot-news-card:nth-child(even) {
+    justify-self: end;
 }
 
 .big-card{
