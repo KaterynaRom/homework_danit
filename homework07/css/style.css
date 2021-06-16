@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'starwars';
+    src: url(../STARWARS.TTF);
+}
+.wrapper{
+    font-family: 'starwars', sans-serif;
+    background: url("../img/sky.jpg") no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    overflow: hidden;
+    perspective: 500px;
+}
+
+.text-box{
+    width: 500px;
+    color: #FFE81F;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    animation-name: move-text;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+}
+
+.title{
+    display: flex;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 35px;
+    padding: 30px;
+    align-self: center;
+}
+
+.text{
+    font-size: 30px;
+    line-height: 45px;
+    text-align:  center;
+}
+@keyframes move-text {
+   0%{
+       transform: rotateX(60deg) translateY(700px);
+   }
+
+    100%{
+        transform: rotateX(60deg) translateY(-200px);
+    }
+}
