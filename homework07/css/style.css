@@ -1,9 +1,6 @@
-@font-face {
-    font-family: 'starwars';
-    src: url(../STARWARS.TTF);
-}
+
 .wrapper{
-    font-family: 'starwars', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background: url("../img/sky.jpg") no-repeat;
     background-size: cover;
     min-height: 100vh;
@@ -20,6 +17,7 @@
     animation-name: move-text;
     animation-duration: 30s;
     animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
 .title{
@@ -37,6 +35,7 @@
     line-height: 45px;
     text-align:  center;
 }
+
 @keyframes move-text {
    0%{
        transform: rotateX(60deg) translateY(700px);
