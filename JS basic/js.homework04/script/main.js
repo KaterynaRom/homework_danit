@@ -5,8 +5,8 @@ function createNewUser ( ){
     return {
         firstName: name,
         lastName: surname,
-        getDiscount: function(){
-            result += this.firstName[0].toLowerCase() + this.lastName.toLowerCase();
+        getDiscount(){
+            result += `${this.firstName[0]}${this.lastName}`.toLowerCase();
             return result;
         }
     }
