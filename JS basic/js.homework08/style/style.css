@@ -1,0 +1,14 @@
+*{
+    margin: 20px;
+}
+
+.number{
+    border: 2px solid forestgreen;
+}
+.numberInvalid{
+    border: 2px solid red;
+}
+
+.text{
+    color: forestgreen;
+}
