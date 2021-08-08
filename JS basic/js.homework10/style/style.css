@@ -24,3 +24,10 @@
 .btn{
     width: 150px;
 }
+.error{
+    display: none;
+}
+.errorShow{
+    display: flex;
+    color: red;
+}
