@@ -21,3 +21,7 @@
 .text{
     color: #39bf15;
 }
+
+.remove{
+    display: none;
+}

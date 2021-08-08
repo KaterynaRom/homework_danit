@@ -1,4 +1,3 @@
-
 const inputField = document.querySelector('#number');
 const  inputError = document.querySelector('.error');
 const span = document.createElement('span');
@@ -24,9 +23,13 @@ inputField.addEventListener('blur', (event) => {
         const button = document.createElement('button');
         button.innerText = 'х';
         span.append(button);
+            span.classList.remove('remove');
+            button.classList.remove('remove');
         button.addEventListener('click', (event) => {
-            span.remove();
-            button.remove();
+            // span.remove();
+            // button.remove();
+            span.classList.add('remove');
+            button.classList.add('remove');
             inputField.value = ' ';
         });
     } else {
@@ -35,7 +38,6 @@ inputField.addEventListener('blur', (event) => {
         inputField.classList.add('numberInvalid');
     }
 });
-
 
 
 
