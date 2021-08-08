@@ -34,7 +34,8 @@ const button = document.querySelector('.btn');
 const error = document.querySelector('#error');
 const warning = document.querySelector('#warning');
 
-button.addEventListener('click', () => {
+button.addEventListener('click', (event) => {
+    event.preventDefault();
     const password = inputPassword.value;
     const passwordRepead = inputPasswordRepeat.value;
 
