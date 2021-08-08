@@ -35,18 +35,28 @@
 //
 // })
 
-
-const icons = document.querySelectorAll('i');
+// попытка1
+// const icons = document.querySelectorAll('i');
+//
+// icons.addEventListener('click', (event) => {
+//     let icon = event.target;
+//     icon.forEach(elem => {
+//         elem.classList.remove('fa-eye');
+//         elem.classList.add('a-eye-slash');
+//     });
+//
+// });
+// попытка2
+const icons = document.querySelector('.password-form');
 
 icons.addEventListener('click', (event) => {
-    let icon = event.target;
-    icon.forEach(elem => {
-        elem.classList.remove('fa-eye');
-        elem.classList.add('a-eye-slash');
-    });
+    let selectedIcon = event.target.dataset.password;
+
+    selectedIcon.classList.remove('fa-eye');
+    selectedIcon.classList.add('a-eye-slash');
+
 
 });
-
 
 
 
