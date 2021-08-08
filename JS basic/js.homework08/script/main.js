@@ -26,8 +26,6 @@ inputField.addEventListener('blur', (event) => {
             span.classList.remove('remove');
             button.classList.remove('remove');
         button.addEventListener('click', (event) => {
-            // span.remove();
-            // button.remove();
             span.classList.add('remove');
             button.classList.add('remove');
             inputField.value = ' ';
