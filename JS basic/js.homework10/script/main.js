@@ -31,15 +31,18 @@ inputShowPasswordRepeat.addEventListener('click', (e) => {
 });
 
 const button = document.querySelector('.btn');
-const error = document.querySelector('.error');
-
+const error = document.querySelector('#error');
+const warning = document.querySelector('#warning');
 
 button.addEventListener('click', () => {
     const password = inputPassword.value;
     const passwordRepead = inputPasswordRepeat.value;
 
-    if (password === passwordRepead){
+    if (password !=='' && passwordRepead !=='' && password === passwordRepead){
         alert('You are welcome');
+    } else if(password ==='' || passwordRepead ===''){
+        warning.classList.remove('error');
+        warning.classList.add('errorShow');
     } else {
         error.classList.remove('error');
         error.classList.add('errorShow');
@@ -49,6 +52,8 @@ button.addEventListener('click', () => {
 button.addEventListener('blur', () => {
     error.classList.remove('errorShow');
     error.classList.add('error');
+    warning.classList.remove('errorShow');
+    warning.classList.add('error');
 });
 
 
