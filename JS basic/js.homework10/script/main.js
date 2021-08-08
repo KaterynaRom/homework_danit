@@ -35,29 +35,26 @@
 //
 // })
 
-// попытка1
-// const icons = document.querySelectorAll('i');
-//
-// icons.addEventListener('click', (event) => {
-//     let icon = event.target;
-//     icon.forEach(elem => {
-//         elem.classList.remove('fa-eye');
-//         elem.classList.add('a-eye-slash');
-//     });
-//
-// });
-// попытка2
+
+// попытка
+
 const icons = document.querySelector('.password-form');
+const inputPassword = document.querySelectorAll('.passwordAll');
 
 icons.addEventListener('click', (event) => {
-    let selectedIcon = event.target.dataset.password;
+    // let selectedInput = event.target.dataset.password;
+    let selectedIcon = event.target.dataset.icon;
 
-    selectedIcon.classList.remove('fa-eye');
-    selectedIcon.classList.add('a-eye-slash');
-
-
+    if (inputPassword.type === 'text') {
+        inputPassword.type = "password";
+        selectedIcon.classList.add('fa-eye-slash');
+        selectedIcon.classList.remove('fa-eye');
+    } else {
+        inputPassword.type = 'text';
+        selectedIcon.classList.add('fa-eye');
+        selectedIcon.classList.remove('fa-eye-slash');
+    }
 });
-
 
 
 
