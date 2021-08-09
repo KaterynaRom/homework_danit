@@ -1,16 +1,16 @@
-const buttonList = document.querySelector('.btn-wrapper');
+const buttonList = document.body;
 
 
-buttonList.addEventListener('keyup', (event) =>{
+buttonList.addEventListener('keyup', (e) =>{
 
     const button = document.querySelectorAll('.bth');
     button.forEach(elem => {
         elem.classList.remove('active');
         elem.classList.add('standartBg');
-        if ("обратиться к нажатой кнопке code=Key...") {
-            elem.classList.add('active');
-            elem.classList.remove('standartBg');
-        }
+        let selectedEl = e.code;
+        console.log(e)
+        selectedEl.classList.add('active');
+        selectedEl.classList.remove('standartBg');
     });
 
 });
