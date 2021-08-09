@@ -8,9 +8,11 @@ buttonList.addEventListener('keyup', (e) =>{
         elem.classList.remove('active');
         elem.classList.add('standartBg');
         let selectedEl = e.code;
-        console.log(e)
-        selectedEl.classList.add('active');
-        selectedEl.classList.remove('standartBg');
+        if (elem.innerText === selectedEl.slice(3)) {
+            elem.classList.add('active');
+            elem.classList.remove('standartBg');
+            console.log(selectedEl);
+        }
     });
 
 });
