@@ -8,6 +8,9 @@ buttonList.addEventListener('keyup', (e) =>{
         elem.classList.remove('active');
         elem.classList.add('standartBg');
         let selectedEl = e.code;
+        console.log(e)
+
+
         if (selectedEl === elem.innerText){
             elem.classList.add('active');
             elem.classList.remove('standartBg');
