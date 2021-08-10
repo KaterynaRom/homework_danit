@@ -1,0 +1,135 @@
+.wrapper {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.container {
+    width: 1920px;
+    margin: 0 auto;
+}
+
+.title{
+    color: #FFFFFF;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+/***********BLOCK #1***********/
+
+
+.first-block{
+    background-image: url("../img/Sections background/section-1(header).jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.navigation{
+    display: flex;
+    justify-content: space-between;
+    background: #5E5D5899;
+    padding: 0 370px;
+}
+
+.logo{
+    display: flex;
+}
+
+.navigation-logo{
+    display: flex;
+    position: relative;
+}
+
+.navigation-logo>p{
+    display: flex;
+    font-size: 32px;
+    line-height: 48px;
+    align-items: center;
+}
+
+.navigation-emblem{
+    display: flex;
+}
+
+.navigation-emblem>p{
+    display: flex;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 31px;
+    position: absolute;
+    top: 49px;
+    left: 15px;
+}
+
+.nav-logo-text{
+    margin-left: 6px;
+}
+
+.color-text{
+    color: #18CFAB;
+    font-weight: bold;
+}
+
+.navigation-menu{
+    display: flex;
+    box-sizing: border-box;
+}
+
+.navigation-item{
+    display: flex;
+}
+
+.navigation-link{
+    font-size: 16px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 49px 10px;
+}
+
+.creative{
+    padding-top: 265px;
+}
+.creative>h2{
+    font-size: 78px;
+    padding: 22px;
+    /*line-height: 1px;*/
+}
+.creative-title{
+    font-size: 35px;
+    /*line-height: 1px;*/
+}
+
+.subtitle{
+    color: #D4D4D4;
+    font-size: 40px;
+    padding-bottom: 130px;
+}
+
+.creative-button{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 240px;
+}
+
+.substrate{
+    /*position: relative;*/
+    display: flex;
+    width: 170px;
+    height: 60px;
+    background: #FFFFFF;
+    border-radius: 4px;
+}
+
+.creative-link{
+    /*position: absolute;*/
+    /*top: 5px;*/
+    display: block;
+    background: #18CFAB;
+    font-size: 15px;
+    line-height: 32px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width: 170px;
+    border-radius: 4px;
+}
+
+/***********BLOCK #2***********/
