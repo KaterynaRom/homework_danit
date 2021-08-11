@@ -14,10 +14,11 @@
     font-weight: bold;
     text-transform: uppercase;
 }
+
 /***********BLOCK #1***********/
 
 
-.first-block{
+.creative-block{
     background-image: url("../img/Sections background/section-1(header).jpg");
     background-size: cover;
     background-repeat: no-repeat;
@@ -56,8 +57,8 @@
     font-size: 40px;
     line-height: 31px;
     position: absolute;
-    top: 49px;
-    left: 15px;
+    top: 47px;
+    left: 13px;
 }
 
 .nav-logo-text{
@@ -85,7 +86,12 @@
     padding: 49px 10px;
 }
 
-.creative{
+.navigation-link:hover {
+    color: #18CFAB;
+    border-bottom: 2px solid #18CFAB;
+}
+
+.creative-text{
     padding-top: 265px;
 }
 .creative>h2{
@@ -110,18 +116,13 @@
     padding-bottom: 240px;
 }
 
-.substrate{
-    /*position: relative;*/
-    display: flex;
-    width: 170px;
-    height: 60px;
-    background: #FFFFFF;
-    border-radius: 4px;
+.creative-button :last-child{
+    margin-left: 26px;
+    background: #00CBF6;
 }
 
+
 .creative-link{
-    /*position: absolute;*/
-    /*top: 5px;*/
     display: block;
     background: #18CFAB;
     font-size: 15px;
@@ -130,6 +131,37 @@
     padding-bottom: 16px;
     width: 170px;
     border-radius: 4px;
+    box-shadow: 0 -5px #FFFFFF;
 }
 
 /***********BLOCK #2***********/
+
+.advantages{
+  display: flex;
+    width: 100%;
+}
+
+.advantages-card{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    background: #1C2A33;
+}
+
+.advantages-card:nth-child(2n) {
+    background: #18CFAB;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
