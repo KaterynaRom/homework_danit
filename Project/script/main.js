@@ -26,4 +26,4 @@ servicesTabs.addEventListener('click', (event) => {
 
 });
 
-// ***************** # 2 ***********
+
