@@ -120,19 +120,19 @@ const arr = [
 
 const workContainer = document.querySelector('.work-container');
 const workTabs = document.querySelector('.work-tabs')
-const tabsTitle = document.querySelectorAll('.work-tabs-title');
 
 workTabs.addEventListener('click', e =>{
+    selectedTab = e.target.dataset.work;
 
     const filterArr = arr.filter(elem => {
-        elem.category = e.innerText;
-    });
-    console.log(filterArr)
-
-    workContainer.innerText = filterArr.map(elem => {
-        `<img class="work-item" src="${elem.src}" alt="">`;
+        if(elem.category === selectedTab){
+            return true;
+        }
     });
 
+    workContainer.innerHTML = filterArr.map(elem => {
+        return `<img class="work-item" src="${elem.src}" alt="">`;
+    }).join(' ');
 });
 
 
