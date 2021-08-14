@@ -133,6 +133,15 @@ workTabs.addEventListener('click', e =>{
     workContainer.innerHTML = filterArr.map(elem => {
         return `<img class="work-item" src="${elem.src}" alt="">`;
     }).join(' ');
+
+    const tabs = document.querySelectorAll('.work-tabs-title');
+    tabs.forEach(elem => {
+        elem.classList.remove('active');
+
+        if (elem.dataset.work === selectedTab) {
+            elem.classList.add('active');
+        }
+    });
 });
 
 
