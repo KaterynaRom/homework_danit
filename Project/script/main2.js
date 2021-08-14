@@ -118,18 +118,24 @@ const arr = [
     },
 ];
 
-const workContainer = document.querySelector('.work-container');
-const workTabs = document.querySelector('.work-tabs')
 
-workTabs.addEventListener('click', e =>{
+
+const workContainer = document.querySelector('.work-container');
+const workTabs = document.querySelector('.work-tabs');
+workContainer.innerHTML = arr.map(elem => {
+    return `<img class="work-item" src="${elem.src}" alt="">`;
+}).join(' ');
+
+workTabs.addEventListener('click', e => {
     selectedTab = e.target.dataset.work;
 
     const filterArr = arr.filter(elem => {
-        if(elem.category === selectedTab){
+        if (elem.category === selectedTab) {
             return true;
         }
     });
 
+    if (selectedTab !== 'All') {
     workContainer.innerHTML = filterArr.map(elem => {
         return `<img class="work-item" src="${elem.src}" alt="">`;
     }).join(' ');
@@ -142,6 +148,11 @@ workTabs.addEventListener('click', e =>{
             elem.classList.add('active');
         }
     });
+    } else {
+        workContainer.innerHTML = arr.map(elem => {
+            return `<img class="work-item" src="${elem.src}" alt="">`;
+        }).join(' ');
+    }
 });
 
 
