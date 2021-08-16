@@ -133,6 +133,7 @@ const content = (arr) =>{
 workContainer.innerHTML = content(images);
 
 workTabs.addEventListener('click', e => {
+    e.preventDefault();
     selectedTab = e.target.dataset.work;
 
     const filterArr = images.filter(elem => {

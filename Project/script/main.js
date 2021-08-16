@@ -26,3 +26,9 @@ servicesTabs.addEventListener('click', (event) => {
 });
 
 
+
+
+const link = document.querySelectorAll('.link');
+link.addEventListener('click', e => {
+    e.preventDefault();
+});
