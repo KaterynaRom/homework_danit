@@ -1,6 +1,6 @@
 // ***************** # 2 ***********
 
-const arr = [
+const images = [
     {
         src: './img/graphic%20design/graphic-design1.jpg',
         category: 'Graphic Design',
@@ -119,26 +119,36 @@ const arr = [
 ];
 
 
-
 const workContainer = document.querySelector('.work-container');
 const workTabs = document.querySelector('.work-tabs');
-workContainer.innerHTML = arr.map(elem => {
-    return `<img class="work-item" src="${elem.src}" alt="">`;
-}).join(' ');
+let perPage = 12;
+
+const content = (arr) =>{
+    return arr.map(elem => {
+        return `
+    <img class="work-item" src="${elem.src}" alt="">
+    <!--<div></div>-->
+    `;
+    }).slice(0, perPage).join(' ');
+};
+
+workContainer.innerHTML = content(images);
 
 workTabs.addEventListener('click', e => {
     selectedTab = e.target.dataset.work;
 
-    const filterArr = arr.filter(elem => {
+    const filterArr = images.filter(elem => {
         if (elem.category === selectedTab) {
             return true;
         }
     });
 
     if (selectedTab !== 'All') {
-    workContainer.innerHTML = filterArr.map(elem => {
-        return `<img class="work-item" src="${elem.src}" alt="">`;
-    }).join(' ');
+        workContainer.innerHTML = content(filterArr);
+    } else {
+        workContainer.innerHTML = content(images);
+    }
+
 
     const tabs = document.querySelectorAll('.work-tabs-title');
     tabs.forEach(elem => {
@@ -148,11 +158,4 @@ workTabs.addEventListener('click', e => {
             elem.classList.add('active');
         }
     });
-    } else {
-        workContainer.innerHTML = arr.map(elem => {
-            return `<img class="work-item" src="${elem.src}" alt="">`;
-        }).join(' ');
-    }
 });
-
-
