@@ -1,5 +1,3 @@
-// ***************** # 2 ***********
-
 const images = [
     {
         src: './img/graphic%20design/graphic-design1.jpg',
@@ -138,9 +136,7 @@ workTabs.addEventListener('click', e => {
     selectedTab = e.target.dataset.work;
 
     const filterArr = images.filter(elem => {
-        if (elem.category === selectedTab) {
-            return true;
-        }
+        return elem.category === selectedTab;
     });
 
     if (selectedTab !== 'All') {
@@ -148,7 +144,6 @@ workTabs.addEventListener('click', e => {
     } else {
         workContainer.innerHTML = content(images);
     }
-
 
     const tabs = document.querySelectorAll('.work-tabs-title');
     tabs.forEach(elem => {
@@ -159,3 +154,22 @@ workTabs.addEventListener('click', e => {
         }
     });
 });
+
+const button = document.querySelector('.button-load');
+
+button.addEventListener('click', e => {
+    perPage = perPage+12;
+    if(selectedTab===`All`){
+        content(images);
+    }
+    // else{
+    //     content(filterArr);
+    // }
+
+    if(perPage === 36) {
+        button.classList.add('unvisible');
+    } else {
+        button.classList.remove('unvisible');
+    }
+
+})

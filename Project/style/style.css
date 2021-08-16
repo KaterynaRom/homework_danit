@@ -325,6 +325,7 @@
 
 .work{
     background: #E9EDEF;
+    padding-bottom: 100px;
 }
 
 .work-tabs{
@@ -344,6 +345,7 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 1fr);
     gap: 0;
+    padding-bottom: 70px;
 
 }
 
@@ -369,11 +371,6 @@
 .button-load{
     display: flex;
     justify-content: center;
-}
-
-.work-link{
-    margin-top: 70px;
-    margin-bottom: 100px;
 }
 
 /***********BLOCK 6**********/

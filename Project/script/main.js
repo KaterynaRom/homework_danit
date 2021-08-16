@@ -9,7 +9,6 @@ servicesTabs.addEventListener('click', (event) => {
     const items = document.querySelectorAll('.services-content-item');
     items.forEach(elem => {
         elem.classList.remove('visible');
-
         if (elem.dataset.category === selectedTab) {
             elem.classList.add('visible');
         }
