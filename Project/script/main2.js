@@ -120,6 +120,7 @@ const images = [
 const workContainer = document.querySelector('.work-container');
 const workTabs = document.querySelector('.work-tabs');
 let perPage = 12;
+let category = 'All';
 
 const content = (arr) =>{
     return arr.map(elem => {
@@ -130,18 +131,18 @@ const content = (arr) =>{
     }).slice(0, perPage).join(' ');
 };
 
+
+const filterArr = (arr, category) => {
+    return arr.filter((e)=> e.category === category)
+}
+
 workContainer.innerHTML = content(images);
 
 workTabs.addEventListener('click', e => {
-
     selectedTab = e.target.dataset.work;
-
-    const filterArr = images.filter(elem => {
-        return elem.category === selectedTab;
-    });
-
+    category =  selectedTab;
     if (selectedTab !== 'All') {
-        workContainer.innerHTML = content(filterArr);
+        workContainer.innerHTML = content(filterArr(images, category));
     } else {
         workContainer.innerHTML = content(images);
     }
@@ -158,18 +159,18 @@ workTabs.addEventListener('click', e => {
 
 const button = document.querySelector('.button-load');
 
-// button.addEventListener('click', e => {
-//     perPage = perPage+12;
-//     if(selectedTab===`All`){
-//         workContainer.innerHTML = content(images);
-//     // } else{
-//     //    workContainer.innerHTML = content(filterArr);
-//     // }
-//
-//     if(perPage === 36) {
-//         button.classList.add('invisible');
-//     } else {
-//         button.classList.remove('invisible');
-//     }
-//
-// })
+button.addEventListener('click', e => {
+    perPage = perPage+12;
+    if(selectedTab===`All`){
+        content(images);
+    } else{
+       content(filterArr(images, category));
+    }
+
+    if(perPage === 36) {
+        button.classList.add('invisible');
+    } else {
+        button.classList.remove('invisible');
+    }
+
+})
