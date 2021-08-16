@@ -29,6 +29,8 @@ servicesTabs.addEventListener('click', (event) => {
 
 
 const link = document.querySelectorAll('.link');
-link.addEventListener('click', e => {
-    e.preventDefault();
-});
+link.forEach(el =>{
+    el.addEventListener('click', e => {
+        e.preventDefault();
+    });
+})
