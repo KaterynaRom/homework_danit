@@ -133,7 +133,7 @@ const content = (arr) =>{
 workContainer.innerHTML = content(images);
 
 workTabs.addEventListener('click', e => {
-    e.preventDefault();
+
     selectedTab = e.target.dataset.work;
 
     const filterArr = images.filter(elem => {
@@ -158,19 +158,18 @@ workTabs.addEventListener('click', e => {
 
 const button = document.querySelector('.button-load');
 
-button.addEventListener('click', e => {
-    perPage = perPage+12;
-    if(selectedTab===`All`){
-        content(images);
-    }
-    // else{
-    //     content(filterArr);
-    // }
-
-    if(perPage === 36) {
-        button.classList.add('unvisible');
-    } else {
-        button.classList.remove('unvisible');
-    }
-
-})
+// button.addEventListener('click', e => {
+//     perPage = perPage+12;
+//     if(selectedTab===`All`){
+//         workContainer.innerHTML = content(images);
+//     // } else{
+//     //    workContainer.innerHTML = content(filterArr);
+//     // }
+//
+//     if(perPage === 36) {
+//         button.classList.add('invisible');
+//     } else {
+//         button.classList.remove('invisible');
+//     }
+//
+// })
