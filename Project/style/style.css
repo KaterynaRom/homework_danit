@@ -339,6 +339,7 @@
     display: flex;
     padding: 15px;
     border: 1px solid #DADADA;
+    cursor: pointer;
 }
 
 .work-container{

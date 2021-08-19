@@ -115,59 +115,61 @@ const images = [
         category: 'Wordpress',
     },
 ];
+
+
+const workContainer = document.querySelector('.work-container');
+const workTabs = document.querySelector('.work-tabs');
+const button = document.querySelector('.button-load');
+
 let perPage = 12;
-let currentCategory=`All`;
+let category = 'All';
 
+const showTab = () => {
 
-
-const render = (arr) => {
-    const mainContainer = document.querySelector('.work-container');
-    const sliceArray = arr.slice(0, perPage);
-    const htmlArray = sliceArray.map((element) => {
-        return `<img class="work-item" src="${element.src}">`
-    });
-    mainContainer.innerHTML = htmlArray.join(' ');
-    const btn = document.querySelector('.button-load');
-
-    if (perPage >= arr.length) {
-        btn.classList.remove(`invisible`);
+    if (category !== 'All') {
+        workContainer.innerHTML = content(filterArr(images, category));
     } else {
-        btn.classList.add(`invisible`);
+        workContainer.innerHTML = content(images);
     }
-}
 
-const filteredArr = (arr, category) => {
-    return arr.filter((e)=> e.category === category)
-}
-
-
-console.log(filteredArr(images))
-
-const tabsContainer = document.querySelector('.work-tabs');
-
-tabsContainer.addEventListener('click', (event) => {
-    const category = event.target.dataset.work;
-    currentCategory = category;
-    perPage = 12;
-    if (category === "all" && event.target !== event.currentTarget) {
-        render(images);
-    } else if (event.target !== event.currentTarget) {
-        const newArr = filteredArr(images, category);
-        render(newArr);}
     const tabs = document.querySelectorAll('.work-tabs-title');
-    tabs.forEach(e => {
-        e.classList.remove('active');
+    tabs.forEach(elem => {
+        elem.classList.remove('active');
+
+        if (elem.dataset.work === category) {
+            elem.classList.add('active');
+        }
     });
-    event.target.classList.add('active');
+}
+
+const content = (arr) => {
+    return arr.map(elem => {
+        return `
+               <img class="work-item" src="${elem.src}" alt="">
+               <!--<div></div>-->
+               `
+    }).slice(0, perPage).join(' ');
+};
+
+const filterArr = (arr, category) => {
+    return arr.filter((e) => e.category === category)
+}
+
+workTabs.addEventListener('click', e => {
+    if (e.target.tagName === 'LI') {
+        category = e.target.dataset.work;
+        showTab();
+    }
 });
 
-const button = document.querySelector(".button-load");
-button.addEventListener(`click`, () => {
-    perPage = perPage+12;
-    if(currentCategory===`All`){
-        render(images);
-    }else{
-        render(filteredArr (images, currentCategory));
+button.addEventListener('click', e => {
+    perPage = perPage + 12;
+    showTab();
+    if (perPage >= 36) {
+        button.classList.add('invisible');
+    } else {
+        button.classList.remove('invisible');
     }
-})
+});
 
+showTab();
