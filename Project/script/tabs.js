@@ -145,8 +145,14 @@ const showTab = () => {
 const content = (arr) => {
     return arr.map(elem => {
         return `
-               <img class="work-item" src="${elem.src}" alt="">
-               <!--<div></div>-->
+               <div class="work-card slow">
+                   <img class="work-img" src="${elem.src}" alt="">
+                   <div class="work-item">
+                   
+                     <h1 class="color-text card-title">creative design</h1>
+                     <p class="fw300">${elem.category}</p>
+                   </div>
+               </div>
                `
     }).slice(0, perPage).join(' ');
 };
