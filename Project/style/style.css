@@ -491,6 +491,10 @@
 
 }
 
+.work-icon{
+    display: flex;
+    justify-content: center;
+}
 
 
 
@@ -498,19 +502,8 @@
     font-size: 12px;
     line-height: 25px;
     color: #8A8A8A;
-
+    margin-bottom: 50px;
 }
-
-
-
-.work-img{
-
-}
-
-/*.work-img :hover .work-item{*/
-/*    top: 0;*/
-/*}*/
-
 
 .card-title{
     font-size: 14px;
@@ -520,5 +513,30 @@
 
 }
 
+.work-icon{
+    margin-top: 45px;
+}
 
 
+
+
+.icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+    border: 1px solid #18CFAB;
+    border-radius: 50%;
+}
+
+
+.icon-k{
+
+
+    width: 12px;
+    height: 11px;
+    border: 1px solid #18CFAB;
+    background: #FFFFFF;
+}
