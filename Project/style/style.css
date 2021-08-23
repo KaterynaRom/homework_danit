@@ -372,6 +372,10 @@
 }
 
 /***********BLOCK 6**********/
+.news{
+    padding-bottom: 125px;
+}
+
 
 .news-box{
     display: grid;
@@ -460,7 +464,23 @@
 }
 
 .people{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-image: url("../img/Sections background/section-3.jpg");
+    padding-bottom: 95px;
+}
+
+.people>h3{
+    color: #18CFAB;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.people-info {
+    color: #BBBBBB;
+    font-size: 16px;
+    line-height: 27px;
 }
 
 .people-text{
@@ -550,3 +570,52 @@
     background: #18CFAB;
 }
 
+.photo{
+    width: 143px;
+    height: 143px;
+    border-radius: 50%;
+    margin-top: 50px;
+    box-shadow: 0 0 0 10px rgba(31, 218, 181, 0.2);
+    background: url("../img/people/people2.jpg")
+}
+
+.carousel{
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+
+}
+
+
+.arrow{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #BBBBBB;
+}
+
+.arrow:hover{
+    background: #18CFAB;
+    border: 1px solid transparent;
+}
+
+.arrow:hover svg path{
+    fill: #FFFFFF;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    color: #AEAEAE;
+    font-size: 14px;
+    line-height: 26px;
+    padding: 50px;
+    background: #22353F;
+}
+
+.footer>p>span{
+    color: #18CFAB;
+}
