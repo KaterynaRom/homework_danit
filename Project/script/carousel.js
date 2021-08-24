@@ -35,6 +35,21 @@ const peopleObj = {
     profession: document.querySelector('.profession'),
     text: document.querySelector('.people-text'),
 
+    gallery: document.querySelector('.people-gallery'),
+    galleryImg: document.querySelectorAll('.gallery-img'),
+    btnPrevious: document.querySelector('.buttonP'),
+    btnNext: document.querySelector('.buttonN'),
+
+
+
+// как подтянуть все картинки в карусель?
+    galleryCarousel() {
+        this.galleryImg.forEach(el => {
+            el.style.background = this.people[this.index].src
+        })
+    },
+
+
 
     selectedPeople(){
         this.text.innerText = this.people[this. index].text;
@@ -42,6 +57,11 @@ const peopleObj = {
         this.profession.innerText = this.people[this. index].profession;
 
         this.photo.style.background = this.people[this. index].src;
+
+        // ??????????????
+
+        this.gallery.innerHTML =  this.galleryCarousel(this.carousel(this.people));
+
     },
 
     nextP (){
@@ -51,10 +71,27 @@ const peopleObj = {
         }
     },
 
-    previousP() {
+    previousP(){
         if(this.index === 0){
             this.index = this.index -1;
             this.selectedPeople();
         }
     },
+
+    carousel(){
+        return this.people.map(elem => {
+            return `
+               <div class="gallery-img"></div>
+               `
+        }).join(' ');
+    },
+
+    addEventListeners(){
+        this.btnPrevious.addEventListener('click', this.previousP.bind(this));
+        this.btnNext.addEventListener('click', this.nextP.bind(this));
+
+        // ?????????????
+        this.galleryImg.addEventListener('click', this.selectedPeople.bind(this));
+    }
+
 }

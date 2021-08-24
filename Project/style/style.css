@@ -586,6 +586,12 @@
 
 }
 
+.gallery-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px rgba(31, 218, 181, 0.2);
+}
 
 .arrow{
     display: flex;
@@ -619,3 +625,4 @@
 .footer>p>span{
     color: #18CFAB;
 }
+
