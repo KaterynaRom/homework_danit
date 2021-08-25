@@ -35,19 +35,9 @@ const peopleObj = {
     profession: document.querySelector('.profession'),
     text: document.querySelector('.people-text'),
 
-    gallery: document.querySelector('.people-gallery'),
-    galleryImg: document.querySelectorAll('.gallery-img'),
     btnPrevious: document.querySelector('.buttonP'),
     btnNext: document.querySelector('.buttonN'),
 
-
-
-// как подтянуть все картинки в карусель?
-    galleryCarousel() {
-        this.galleryImg.forEach(el => {
-            el.style.background = this.people[this.index].src
-        })
-    },
 
 
 
@@ -91,7 +81,7 @@ const peopleObj = {
         this.btnNext.addEventListener('click', this.nextP.bind(this));
 
         // ?????????????
-        this.galleryImg.addEventListener('click', this.selectedPeople.bind(this));
+        // this.galleryImg.addEventListener('click', this.selectedPeople.bind(this));
     }
 
 }
