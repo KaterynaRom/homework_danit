@@ -29,59 +29,51 @@ const peopleObj = {
 
     ],
 
-    index: 0,
-    photo: document.querySelector('.photo'),
-    name: document.querySelector('.name'),
-    profession: document.querySelector('.profession'),
-    text: document.querySelector('.people-text'),
+    slideWidth: 143,
+    currentSlide: 0,
 
-    btnPrevious: document.querySelector('.buttonP'),
+    photoContainer: document.querySelector('.clients-bigpics'),
+    photoSmall: document.querySelectorAll('.clients-selectors'),
+
+    render(){
+        const imgArr = this.people[this.src].map(e => `<li class="clients-bigpics-li">
+      <img class="clients-bigpics-pic" src="${e.src}" alt="client face">
+      </li>
+    `);
+
+        this.photoContainer.innerHTML = imgArr().join(' ');
+
+        // **************
+        this.addEventListeners();
+    },
+    translate(){
+        this.photoContainer.style.transform = `translateX(-${this.slideWidth*this.currentSlide}px)`
+    },
+    nextSlide (){
+        if (this.currentSlide >= this.people.length-1){
+            return;
+        }
+        this.currentSlide = this.currentSlide + 1;
+        this.translate();
+    },
+    prevSlide(){
+        if (this.currentSlide === 0){
+            return;
+        }
+        this.currentSlide = this.currentSlide - 1;
+        this.translate();
+    },
     btnNext: document.querySelector('.buttonN'),
+    btnPrew: document.querySelector('.buttonP'),
 
-
-
-
-    selectedPeople(){
-        this.text.innerText = this.people[this. index].text;
-        this.name.innerText = this.people[this. index].name;
-        this.profession.innerText = this.people[this. index].profession;
-
-        this.photo.style.background = this.people[this. index].src;
-
-        // ??????????????
-
-        this.gallery.innerHTML =  this.galleryCarousel(this.carousel(this.people));
-
-    },
-
-    nextP (){
-        if(this.index < this.people.length){
-            this.index++;
-            this.selectedPeople();
-        }
-    },
-
-    previousP(){
-        if(this.index === 0){
-            this.index = this.index -1;
-            this.selectedPeople();
-        }
-    },
-
-    carousel(){
-        return this.people.map(elem => {
-            return `
-               <div class="gallery-img"></div>
-               `
-        }).join(' ');
-    },
 
     addEventListeners(){
-        this.btnPrevious.addEventListener('click', this.previousP.bind(this));
-        this.btnNext.addEventListener('click', this.nextP.bind(this));
-
-        // ?????????????
-        // this.galleryImg.addEventListener('click', this.selectedPeople.bind(this));
-    }
-
+        this.btnPrew.addEventListener('click', this.prevSlide.bind(this));
+        this.btnNext.addEventListener('click', this.nextSlide.bind(this));
+        this.photoSmall.addEventListener('click', this.translate.bind(this));
+    },
 }
+
+peopleObj.render();
+peopleObj.translate();
+
