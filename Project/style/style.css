@@ -255,7 +255,7 @@
 }
 
 .services-tabs-title:hover{
-    border: 2px solid #18CFAB;
+    border: 1px solid #18CFAB;
     /**************************/
 }
 
@@ -329,14 +329,20 @@
     padding-bottom: 100px;
 }
 
+.work .work-tabs{
+    height: 60px;
+}
+
 .work-tabs{
     display: flex;
     justify-content: center;
+    height: 72px;
     margin-bottom: 70px;
 }
 
 .work-tabs-title{
     display: flex;
+    align-items: center;
     padding: 15px;
     border: 1px solid #DADADA;
     cursor: pointer;
@@ -353,7 +359,7 @@
 
 
 .work-tabs-title.active{
-    border: 2px solid #18CFAB;
+    border: 1px solid #18CFAB;
 }
 
 .load{
@@ -463,6 +469,11 @@
     color: #FFFFFF;
 }
 
+
+
+
+/********************** People Say **********************/
+
 .people{
     display: flex;
     flex-direction: column;
@@ -490,7 +501,6 @@
     padding: 35px;
 }
 
-/*********************************************/
 .work-card{
     display: flex;
     flex-direction: column;
@@ -498,6 +508,7 @@
     height: 205px;
     overflow: hidden;
 }
+
 .work-card:hover .work-item{
         top: 0;
 }
@@ -610,23 +621,6 @@
     fill: #FFFFFF;
 }
 
-.footer{
-    display: flex;
-    justify-content: center;
-    position: relative;
-    color: #AEAEAE;
-    font-size: 14px;
-    line-height: 26px;
-    padding: 50px;
-    background: #22353F;
-}
-
-.footer>p>span{
-    color: #18CFAB;
-}
-
-/******************************************************/
-
 .clients-bigpics-container {
     margin: 33px auto 0;
     width: 145px;
@@ -671,9 +665,22 @@
 }
 
 
+/**************** footer **************/
 
+.footer{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    color: #AEAEAE;
+    font-size: 14px;
+    line-height: 26px;
+    padding: 50px;
+    background: #22353F;
+}
 
-
+.footer>p>span{
+    color: #18CFAB;
+}
 
 
 

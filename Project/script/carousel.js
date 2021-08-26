@@ -41,8 +41,6 @@ const peopleObj = {
     profession: document.querySelector('.profession'),
 
 
-
-
     render() {
         const imgArr = this.people.map(e => `<li class="clients-bigpics-li">
       <img data-slide="${e.slide}" class="clients-bigpics-pic" src="${e.src}" alt="client face">
@@ -56,22 +54,6 @@ const peopleObj = {
         this.photoContainer.style.transform = `translateX(-${this.slideWidth * this.currentSlide}px)`;
     },
 
-    nextSlide() {
-        if (this.currentSlide >= this.people.length - 1) {
-            return;
-        }
-        this.currentSlide = this.currentSlide + 1;
-        this.translate();
-    },
-
-    prevSlide() {
-        if (this.currentSlide === 0) {
-            return;
-        }
-        this.currentSlide = this.currentSlide - 1;
-        this.translate();
-    },
-
     activAdd(){
         this.selectedPhotoSmall.forEach(el => {
             el.classList.remove('active-slide');
@@ -80,6 +62,27 @@ const peopleObj = {
             }
         });
     },
+
+
+    nextSlide() {
+
+        if (this.currentSlide >= this.people.length - 1) {
+            return;
+        }
+        this.currentSlide = this.currentSlide + 1;
+        this.translate();
+    },
+
+    prevSlide() {
+
+        if (this.currentSlide === 0) {
+            return;
+        }
+        this.currentSlide = this.currentSlide - 1;
+        this.translate();
+    },
+
+
 
 
     btnNext: document.querySelector('.buttonN'),
@@ -91,6 +94,7 @@ const peopleObj = {
         this.btnNext.addEventListener('click', this.nextSlide.bind(this));
         this.photoGalAll.addEventListener('click', e => {
             this.currentSlide = e.target.dataset.slide;
+            this.translate();
             this.activAdd();
         });
     },
@@ -99,3 +103,5 @@ const peopleObj = {
 
 peopleObj.render();
 peopleObj.translate();
+peopleObj.nextSlide();
+peopleObj.prevSlide();
