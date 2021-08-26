@@ -68,11 +68,11 @@ const peopleObj = {
     },
     nextSlide() {
         this.currentSlide++
-        this.translate();
+        // this.translate();
     },
     prevSlide() {
         this.currentSlide--
-        this.translate();
+        // this.translate();
     },
 
     // nextSlide() {
@@ -116,7 +116,9 @@ const peopleObj = {
         // `;
     },
     photosSmall: document.querySelector('.clients-selectors'),
-    photosSmallAdd(){this.photosSmall.innerHTML = photoGalleryAdd();},
+    photosSmallAdd(){
+        this.photosSmall.innerHTML = photosSmallGallery();
+    },
 
 
 
