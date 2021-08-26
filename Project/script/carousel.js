@@ -40,6 +40,16 @@ const peopleObj = {
     name: document.querySelector('.name'),
     profession: document.querySelector('.profession'),
 
+    photoGalleryAdd(){
+            this.photosSmall.innerHTML = `
+              <img data-slide="0" class="clients-smallpic" src="./img/people/people1.jpg" alt="client face">
+              <img data-slide="1" class="clients-smallpic" src="./img/people/people2.jpg" alt="client face">
+              <img data-slide="2" class="clients-smallpic active-slide" src="./img/people/people3.jpg" alt="client face">
+              <img data-slide="3" class="clients-smallpic" src="./img/people/people4.jpg" alt="client face">
+        `;
+    },
+
+
     render() {
         const imgArr = this.people.map(e => `<li class="clients-bigpics-li">
       <img class="clients-bigpics-pic" src="${e.src}" alt="client face">
@@ -53,25 +63,44 @@ const peopleObj = {
         this.photoContainer.style.transform = `translateX(-${this.slideWidth * this.currentSlide}px)`
     },
 
+    get currentSlide() {
+        return this._currentSlide;
+    },
+
+    set currentSlide(x) {
+        if (x > this.people.length - 1 || x < 0 || isNaN(x)) return;
+        this._currentSlide = x;
+        this.translate();
+        this.activAdd();
+    },
     nextSlide() {
-        // this.currentSlide = this.people.slide;
-        if (this.currentSlide >= this.people.length - 1) {
-            return;
-        }
-        this.currentSlide = this.currentSlide + 1;
-        // this.activAdd();
+        this.currentSlide++
+        this.translate();
+    },
+    prevSlide() {
+        this.currentSlide--
         this.translate();
     },
 
-    prevSlide() {
-        // this.currentSlide = this.people.slide;
-        if (this.currentSlide === 0) {
-            return;
-        }
-        this.currentSlide = this.currentSlide - 1;
-        // this.activAdd();
-        this.translate();
-    },
+    // nextSlide() {
+    //     // this.currentSlide = this.people.slide;
+    //     if (this.currentSlide >= this.people.length - 1) {
+    //         return;
+    //     }
+    //     this.currentSlide = this.currentSlide + 1;
+    //     // this.activAdd();
+    //     this.translate();
+    // },
+    //
+    // prevSlide() {
+    //     // this.currentSlide = this.people.slide;
+    //     if (this.currentSlide === 0) {
+    //         return;
+    //     }
+    //     this.currentSlide = this.currentSlide - 1;
+    //     // this.activAdd();
+    //     this.translate();
+    // },
 
     activAdd(){
         this.selectedPhotoSmall.forEach(el => {
@@ -92,8 +121,6 @@ const peopleObj = {
 
         this.photosSmall.addEventListener('click', e => {
             this.currentSlide = e.target.dataset.slide;
-            this.activAdd();
-            this.translate();
         });
 
 
@@ -101,5 +128,6 @@ const peopleObj = {
 
 }
 
+peopleObj.photoGalleryAdd()
 peopleObj.render();
 peopleObj.translate();
