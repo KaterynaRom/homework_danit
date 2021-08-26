@@ -665,10 +665,10 @@
     cursor: pointer;
 }
 
-/*.clients-smallpic.active {*/
-/*    transition: transform 0.3s ease-in;*/
-/*    transform: translateY(-12px);*/
-/*}*/
+.clients-smallpic.active {
+    transition: transform 0.3s ease-in;
+    transform: translateY(-12px);
+}
 
 
 

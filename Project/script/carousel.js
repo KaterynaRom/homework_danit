@@ -6,25 +6,25 @@ const peopleObj = {
             name: 'Hasan Ali',
             profession: 'UX Designer',
             src: './img/people/people1.jpg',
-            index: 0
+            slide: 0
         }, {
             text: 'Integer dignissim, augue tempus ultricies luctus, quam dui laoreet sem, non dictum odio nisi quis massa. Morbi pulvinar odio eget aliquam facilisis. Tempus ultricies luctus, quam dui laoreet sem',
             name: 'Aboo Assan',
             profession: 'Programmer',
             src: './img/people/people2.jpg',
-            index: 1
+            slide: 1
         }, {
             text: 'Integer dignissim, augue tempus ultricies luctus, quam dui laoreet sem, non dictum odio nisi quis massa. Morbi pulvinar odio eget aliquam facilisis. non dictum odio nisi quis massa. Morbi pulvinar odio eget aliquam facilisis.',
             name: 'Bakr Nasat',
             profession: 'Web Designer',
             src: './img/people/people3.jpg',
-            index: 2
+            slide: 2
         }, {
             text: 'Integer dignissim, augue tempus ultricies luctus, quam dui laoreet sem, non dictum odio nisi quis massa. Morbi pulvinar odio eget aliquam facilisis. Tempus ultricies luctus, quam dui laoreet sem, o eget aliquam facilisis.',
             name: 'Kate Rony',
             profession: 'Software Tester',
             src: './img/people/people4.jpg',
-            index: 3
+            slide: 3
         }
 
     ],
@@ -33,7 +33,10 @@ const peopleObj = {
     currentSlide: 0,
 
     photoContainer: document.querySelector('.clients-bigpics'),
-    photoSmall: document.querySelector('.clients-selectors'),
+    photosSmall: document.querySelectorAll('.clients-smallpic'),
+    text: document.querySelector('.people-text'),
+    name: document.querySelector('.name'),
+    profession: document.querySelector('.profession'),
 
     render() {
         const imgArr = this.people.map(e => `<li class="clients-bigpics-li">
@@ -70,8 +73,24 @@ const peopleObj = {
     addEventListeners() {
         this.btnPrew.addEventListener('click', this.prevSlide.bind(this));
         this.btnNext.addEventListener('click', this.nextSlide.bind(this));
-        this.photoSmall.addEventListener('click', this.translate.bind(this));
+
+
     },
+
+    peopleContent (){
+        this.photosSmall.forEach(el => {
+            el.classList.remove('active');
+            if (el.slide === this.slideWidth) {
+                el.classList.add('active');
+
+                // this.text.innerHTML = el.text;
+                // this.name.innerHTML = el.name;
+                // this.profession.innerHTML = el.profession;
+
+            }
+        })
+
+    }
 }
 
 peopleObj.render();
