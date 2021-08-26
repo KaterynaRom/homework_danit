@@ -574,8 +574,14 @@
 .carousel{
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 70px;
+}
 
+.clients-selectors{
+    display: flex;
+    width: 450px;
+    justify-content: space-evenly;
 }
 
 .gallery-img{
