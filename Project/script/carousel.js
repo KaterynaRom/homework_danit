@@ -142,7 +142,6 @@ const peopleObj = {
 
 }
 
-peopleObj.photosSmallAdd()
-peopleObj.photoGalleryAdd();
+peopleObj.photosSmallAdd();
 peopleObj.render();
 peopleObj.translate();
