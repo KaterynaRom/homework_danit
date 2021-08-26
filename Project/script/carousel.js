@@ -33,6 +33,7 @@ const peopleObj = {
     currentSlide: 0,
 
     photoContainer: document.querySelector('.clients-bigpics'),
+    photoGalAll: document.querySelector('.clients-bigpics'),
 
     selectedPhotoSmall: document.querySelectorAll('.clients-smallpic'),
 
@@ -117,7 +118,7 @@ const peopleObj = {
         this.btnPrew.addEventListener('click', this.prevSlide.bind(this));
         this.btnNext.addEventListener('click', this.nextSlide.bind(this));
 
-        this.photosSmall.addEventListener('click', e => {
+        this.photoGalAll.addEventListener('click', e => {
             this.currentSlide = e.target.dataset.slide;
             this.activAdd();
         });
