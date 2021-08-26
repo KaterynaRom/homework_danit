@@ -49,6 +49,12 @@ const peopleObj = {
       </li>
     `);
         this.photoContainer.innerHTML = imgArr.join(' ');
+
+        const photosSmallGallery = this.people.map(e => {
+            `<img data-slide="${e.slide}" class="clients-smallpic" src="${e.src}" alt="client face">`}).join('');
+
+        const photosSmall = document.querySelector('.clients-selectors');
+        photosSmall.innerHTML = photosSmallGallery;
         this.addEventListeners();
     },
 
@@ -68,11 +74,9 @@ const peopleObj = {
     },
     nextSlide() {
         this.currentSlide++
-        // this.translate();
     },
     prevSlide() {
         this.currentSlide--
-        // this.translate();
     },
 
     // nextSlide() {
@@ -103,25 +107,6 @@ const peopleObj = {
             }
         });
     },
-
-    photosSmallGallery(){
-        this.photosSmall.innerHTML = this.people.map(e => {
-            `<img data-slide="${e.slide}" class="clients-smallpic" src="${e.src}" alt="client face">`}).join('');
-
-        // this.photosSmall.innerHTML = `
-        //       <img data-slide="0" class="clients-smallpic" src="./img/people/people1.jpg" alt="client face">
-        //       <img data-slide="1" class="clients-smallpic" src="./img/people/people2.jpg" alt="client face">
-        //       <img data-slide="2" class="clients-smallpic active-slide" src="./img/people/people3.jpg" alt="client face">
-        //       <img data-slide="3" class="clients-smallpic" src="./img/people/people4.jpg" alt="client face">
-        // `;
-    },
-    photosSmall: document.querySelector('.clients-selectors'),
-    photosSmallAdd(){
-        this.photosSmall.innerHTML = photosSmallGallery();
-    },
-
-
-
 
 
     btnNext: document.querySelector('.buttonN'),
