@@ -649,7 +649,7 @@
 }
 
 .clients-bigpics-pic {
-    display: block;
+    dispclients-bigpicslay: block;
     object-fit: cover;
     height: 150px;
     width: 150px;

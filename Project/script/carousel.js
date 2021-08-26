@@ -48,9 +48,11 @@ const peopleObj = {
         this.photoContainer.innerHTML = imgArr.join(' ');
         this.addEventListeners();
     },
+
     translate() {
         this.photoContainer.style.transform = `translateX(-${this.slideWidth * this.currentSlide}px)`
     },
+
     nextSlide() {
         // this.currentSlide = this.people.slide;
         if (this.currentSlide >= this.people.length - 1) {
@@ -60,6 +62,7 @@ const peopleObj = {
         // this.activAdd();
         this.translate();
     },
+
     prevSlide() {
         // this.currentSlide = this.people.slide;
         if (this.currentSlide === 0) {
@@ -86,6 +89,7 @@ const peopleObj = {
     addEventListeners() {
         this.btnPrew.addEventListener('click', this.prevSlide.bind(this));
         this.btnNext.addEventListener('click', this.nextSlide.bind(this));
+
         this.photosSmall.addEventListener('click', e => {
             this.currentSlide = e.target.dataset.slide;
             this.activAdd();
