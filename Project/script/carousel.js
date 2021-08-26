@@ -45,29 +45,40 @@ const peopleObj = {
       <img class="clients-bigpics-pic" src="${e.src}" alt="client face">
       </li>
     `);
-
         this.photoContainer.innerHTML = imgArr.join(' ');
-
-        // **************
         this.addEventListeners();
     },
     translate() {
         this.photoContainer.style.transform = `translateX(-${this.slideWidth * this.currentSlide}px)`
     },
     nextSlide() {
+        // this.currentSlide = this.people.slide;
         if (this.currentSlide >= this.people.length - 1) {
             return;
         }
         this.currentSlide = this.currentSlide + 1;
+        // this.activAdd();
         this.translate();
     },
     prevSlide() {
+        // this.currentSlide = this.people.slide;
         if (this.currentSlide === 0) {
             return;
         }
         this.currentSlide = this.currentSlide - 1;
+        // this.activAdd();
         this.translate();
     },
+
+    activAdd(){
+        this.selectedPhotoSmall.forEach(el => {
+            el.classList.remove('active-slide');
+            if (el.dataset.slide === this.currentSlide) {
+                el.classList.add('active-slide');
+            }
+        });
+    },
+
     btnNext: document.querySelector('.buttonN'),
     btnPrew: document.querySelector('.buttonP'),
 
@@ -77,28 +88,13 @@ const peopleObj = {
         this.btnNext.addEventListener('click', this.nextSlide.bind(this));
         this.photosSmall.addEventListener('click', e => {
             this.currentSlide = e.target.dataset.slide;
-            this.selectedPhotoSmall.forEach(el => {
-                el.classList.remove('active-slide');
-                if (el.dataset.slide === this.currentSlide) {
-                    el.classList.add('active-slide');
-                }
-            });
+            this.activAdd();
             this.translate();
         });
 
 
     },
 
-    // peopleContent (){
-    //     this.photosSmall.forEach(el => {
-    //         el.classList.remove('active');
-    //         if (el.slide === this.slideWidth) {
-    //             el.classList.add('active');
-    //
-    //         }
-    //     })
-    //
-    // }
 }
 
 peopleObj.render();
