@@ -29,19 +29,19 @@ const peopleObj = {
 
     ],
 
-    slideWidth: 143,
+    slideWidth: 150,
     currentSlide: 0,
 
     photoContainer: document.querySelector('.clients-bigpics'),
     photoSmall: document.querySelector('.clients-selectors'),
 
     render() {
-        const imgArr = this.people[this.src].map(e => `<li class="clients-bigpics-li">
+        const imgArr = this.people.map(e => `<li class="clients-bigpics-li">
       <img class="clients-bigpics-pic" src="${e.src}" alt="client face">
       </li>
     `);
 
-        this.photoContainer.innerHTML = imgArr().join(' ');
+        this.photoContainer.innerHTML = imgArr.join(' ');
 
         // **************
         this.addEventListeners();
