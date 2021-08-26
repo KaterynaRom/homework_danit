@@ -33,7 +33,9 @@ const peopleObj = {
     currentSlide: 0,
 
     photoContainer: document.querySelector('.clients-bigpics'),
-    photosSmall: document.querySelectorAll('.clients-smallpic'),
+    photosSmall: document.querySelector('.clients-selectors'),
+    selectedPhotoSmall: document.querySelectorAll('.clients-smallpic'),
+
     text: document.querySelector('.people-text'),
     name: document.querySelector('.name'),
     profession: document.querySelector('.profession'),
@@ -73,24 +75,30 @@ const peopleObj = {
     addEventListeners() {
         this.btnPrew.addEventListener('click', this.prevSlide.bind(this));
         this.btnNext.addEventListener('click', this.nextSlide.bind(this));
+        this.photosSmall.addEventListener('click', e => {
+            this.currentSlide = e.target.dataset.slide;
+            this.selectedPhotoSmall.forEach(el => {
+                el.classList.remove('active-slide');
+                if (el.dataset.slide === this.currentSlide) {
+                    el.classList.add('active-slide');
+                }
+            });
+            this.translate();
+        });
 
 
     },
 
-    peopleContent (){
-        this.photosSmall.forEach(el => {
-            el.classList.remove('active');
-            if (el.slide === this.slideWidth) {
-                el.classList.add('active');
-
-                // this.text.innerHTML = el.text;
-                // this.name.innerHTML = el.name;
-                // this.profession.innerHTML = el.profession;
-
-            }
-        })
-
-    }
+    // peopleContent (){
+    //     this.photosSmall.forEach(el => {
+    //         el.classList.remove('active');
+    //         if (el.slide === this.slideWidth) {
+    //             el.classList.add('active');
+    //
+    //         }
+    //     })
+    //
+    // }
 }
 
 peopleObj.render();

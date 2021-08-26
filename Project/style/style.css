@@ -665,7 +665,7 @@
     cursor: pointer;
 }
 
-.clients-smallpic.active {
+.active-slide {
     transition: transform 0.3s ease-in;
     transform: translateY(-12px);
 }
