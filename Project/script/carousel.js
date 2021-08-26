@@ -2,21 +2,21 @@ const peopleObj = {
 
     people: [
         {
-            text:'Integer dignissim, augue tempus ultricies luctus, quam dui laoreet sem, non dictum odio nisi quis massa. Morbi pulvinar odio eget aliquam facilisis. Tempus ultricies luctus, quam dui laoreet sem, non dictum odio nisi quis massa. Morbi pulvinar odio eget aliquam facilisis.',
-            name:'Hasan Ali',
+            text: 'Integer dignissim, augue tempus ultricies luctus, quam dui laoreet sem, non dictum odio nisi quis massa. Morbi pulvinar odio eget aliquam facilisis. Tempus ultricies luctus, quam dui laoreet sem, non dictum odio nisi quis massa. Morbi pulvinar odio eget aliquam facilisis.',
+            name: 'Hasan Ali',
             profession: 'UX Designer',
             src: './img/people/people1.jpg',
             index: 0
-        },  {
+        }, {
             text: 'Integer dignissim, augue tempus ultricies luctus, quam dui laoreet sem, non dictum odio nisi quis massa. Morbi pulvinar odio eget aliquam facilisis. Tempus ultricies luctus, quam dui laoreet sem',
-            name:'Aboo Assan',
+            name: 'Aboo Assan',
             profession: 'Programmer',
             src: './img/people/people2.jpg',
             index: 1
         }, {
             text: 'Integer dignissim, augue tempus ultricies luctus, quam dui laoreet sem, non dictum odio nisi quis massa. Morbi pulvinar odio eget aliquam facilisis. non dictum odio nisi quis massa. Morbi pulvinar odio eget aliquam facilisis.',
             name: 'Bakr Nasat',
-            profession:'Web Designer',
+            profession: 'Web Designer',
             src: './img/people/people3.jpg',
             index: 2
         }, {
@@ -33,9 +33,9 @@ const peopleObj = {
     currentSlide: 0,
 
     photoContainer: document.querySelector('.clients-bigpics'),
-    photoSmall: document.querySelectorAll('.clients-selectors'),
+    photoSmall: document.querySelector('.clients-selectors'),
 
-    render(){
+    render() {
         const imgArr = this.people[this.src].map(e => `<li class="clients-bigpics-li">
       <img class="clients-bigpics-pic" src="${e.src}" alt="client face">
       </li>
@@ -46,18 +46,18 @@ const peopleObj = {
         // **************
         this.addEventListeners();
     },
-    translate(){
-        this.photoContainer.style.transform = `translateX(-${this.slideWidth*this.currentSlide}px)`
+    translate() {
+        this.photoContainer.style.transform = `translateX(-${this.slideWidth * this.currentSlide}px)`
     },
-    nextSlide (){
-        if (this.currentSlide >= this.people.length-1){
+    nextSlide() {
+        if (this.currentSlide >= this.people.length - 1) {
             return;
         }
         this.currentSlide = this.currentSlide + 1;
         this.translate();
     },
-    prevSlide(){
-        if (this.currentSlide === 0){
+    prevSlide() {
+        if (this.currentSlide === 0) {
             return;
         }
         this.currentSlide = this.currentSlide - 1;
@@ -67,7 +67,7 @@ const peopleObj = {
     btnPrew: document.querySelector('.buttonP'),
 
 
-    addEventListeners(){
+    addEventListeners() {
         this.btnPrew.addEventListener('click', this.prevSlide.bind(this));
         this.btnNext.addEventListener('click', this.nextSlide.bind(this));
         this.photoSmall.addEventListener('click', this.translate.bind(this));
@@ -76,4 +76,3 @@ const peopleObj = {
 
 peopleObj.render();
 peopleObj.translate();
-
