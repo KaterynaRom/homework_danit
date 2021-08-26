@@ -33,21 +33,14 @@ const peopleObj = {
     currentSlide: 0,
 
     photoContainer: document.querySelector('.clients-bigpics'),
-    photosSmall: document.querySelector('.clients-selectors'),
+
     selectedPhotoSmall: document.querySelectorAll('.clients-smallpic'),
 
     text: document.querySelector('.people-text'),
     name: document.querySelector('.name'),
     profession: document.querySelector('.profession'),
 
-    photoGalleryAdd(){
-            this.photosSmall.innerHTML = `
-              <img data-slide="0" class="clients-smallpic" src="./img/people/people1.jpg" alt="client face">
-              <img data-slide="1" class="clients-smallpic" src="./img/people/people2.jpg" alt="client face">
-              <img data-slide="2" class="clients-smallpic active-slide" src="./img/people/people3.jpg" alt="client face">
-              <img data-slide="3" class="clients-smallpic" src="./img/people/people4.jpg" alt="client face">
-        `;
-    },
+
 
 
     render() {
@@ -111,6 +104,24 @@ const peopleObj = {
         });
     },
 
+    photosSmallGallery(){
+        this.photosSmall.innerHTML = this.people.map(e => {
+            `<img data-slide="${e.slide}" class="clients-smallpic" src="${e.src}" alt="client face">`}).join('');
+
+        // this.photosSmall.innerHTML = `
+        //       <img data-slide="0" class="clients-smallpic" src="./img/people/people1.jpg" alt="client face">
+        //       <img data-slide="1" class="clients-smallpic" src="./img/people/people2.jpg" alt="client face">
+        //       <img data-slide="2" class="clients-smallpic active-slide" src="./img/people/people3.jpg" alt="client face">
+        //       <img data-slide="3" class="clients-smallpic" src="./img/people/people4.jpg" alt="client face">
+        // `;
+    },
+    photosSmall: document.querySelector('.clients-selectors'),
+    photosSmallAdd(){this.photosSmall.innerHTML = photoGalleryAdd();},
+
+
+
+
+
     btnNext: document.querySelector('.buttonN'),
     btnPrew: document.querySelector('.buttonP'),
 
@@ -121,6 +132,7 @@ const peopleObj = {
 
         this.photosSmall.addEventListener('click', e => {
             this.currentSlide = e.target.dataset.slide;
+            this.activAdd();
         });
 
 
@@ -128,6 +140,7 @@ const peopleObj = {
 
 }
 
-peopleObj.photoGalleryAdd()
+peopleObj.photosSmallAdd()
+peopleObj.photoGalleryAdd();
 peopleObj.render();
 peopleObj.translate();
