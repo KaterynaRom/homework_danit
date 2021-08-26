@@ -33,9 +33,8 @@ const peopleObj = {
     currentSlide: 0,
 
     photoContainer: document.querySelector('.clients-bigpics'),
-    photoGalAll: document.querySelector('.clients-bigpics'),
-
     selectedPhotoSmall: document.querySelectorAll('.clients-smallpic'),
+    photoGalAll: document.querySelector('.clients-selectors'),
 
     text: document.querySelector('.people-text'),
     name: document.querySelector('.name'),
@@ -46,59 +45,32 @@ const peopleObj = {
 
     render() {
         const imgArr = this.people.map(e => `<li class="clients-bigpics-li">
-      <img class="clients-bigpics-pic" src="${e.src}" alt="client face">
+      <img data-slide="${e.slide}" class="clients-bigpics-pic" src="${e.src}" alt="client face">
       </li>
     `);
         this.photoContainer.innerHTML = imgArr.join(' ');
-
-        const photosSmallGallery = this.people.map(e => {
-            `<img data-slide="${e.slide}" class="clients-smallpic" src="${e.src}" alt="client face">`}).join('');
-
-        const photosSmall = document.querySelector('.clients-selectors');
-        photosSmall.innerHTML = photosSmallGallery;
         this.addEventListeners();
     },
 
     translate() {
-        this.photoContainer.style.transform = `translateX(-${this.slideWidth * this.currentSlide}px)`
+        this.photoContainer.style.transform = `translateX(-${this.slideWidth * this.currentSlide}px)`;
     },
 
-    get currentSlide() {
-        return this._currentSlide;
-    },
-
-    set currentSlide(x) {
-        if (x > this.people.length - 1 || x < 0 || isNaN(x)) return;
-        this._currentSlide = x;
-        this.translate();
-        this.activAdd();
-    },
     nextSlide() {
-        this.currentSlide++
-    },
-    prevSlide() {
-        this.currentSlide--
+        if (this.currentSlide >= this.people.length - 1) {
+            return;
+        }
+        this.currentSlide = this.currentSlide + 1;
+        this.translate();
     },
 
-    // nextSlide() {
-    //     // this.currentSlide = this.people.slide;
-    //     if (this.currentSlide >= this.people.length - 1) {
-    //         return;
-    //     }
-    //     this.currentSlide = this.currentSlide + 1;
-    //     // this.activAdd();
-    //     this.translate();
-    // },
-    //
-    // prevSlide() {
-    //     // this.currentSlide = this.people.slide;
-    //     if (this.currentSlide === 0) {
-    //         return;
-    //     }
-    //     this.currentSlide = this.currentSlide - 1;
-    //     // this.activAdd();
-    //     this.translate();
-    // },
+    prevSlide() {
+        if (this.currentSlide === 0) {
+            return;
+        }
+        this.currentSlide = this.currentSlide - 1;
+        this.translate();
+    },
 
     activAdd(){
         this.selectedPhotoSmall.forEach(el => {
@@ -117,17 +89,13 @@ const peopleObj = {
     addEventListeners() {
         this.btnPrew.addEventListener('click', this.prevSlide.bind(this));
         this.btnNext.addEventListener('click', this.nextSlide.bind(this));
-
         this.photoGalAll.addEventListener('click', e => {
             this.currentSlide = e.target.dataset.slide;
             this.activAdd();
         });
-
-
     },
 
 }
 
-peopleObj.photosSmallAdd();
 peopleObj.render();
 peopleObj.translate();
