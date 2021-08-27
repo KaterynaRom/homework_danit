@@ -59,6 +59,7 @@ const peopleObj = {
             el.classList.remove('active-slide');
             if (el.dataset.slide === this.currentSlide) {
                 el.classList.add('active-slide');
+
             }
         });
     },
