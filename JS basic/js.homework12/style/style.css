@@ -1,0 +1,11 @@
+
+.images-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.images-wrapper>img {
+    width: 400px;
+    height: 400px;
+}
