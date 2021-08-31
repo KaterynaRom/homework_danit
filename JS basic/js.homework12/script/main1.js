@@ -7,30 +7,27 @@ const autoSlider = {
     ],
 
     interval: null,
-    currentSlide: -1,
+    currentSlide: 0,
     container: document.querySelector('.images-wrapper'),
     imageElem: document.querySelector('.images-wrapper img'),
 
-    // timerId: setTimeout(function start() {
-    //     this.timerId = setTimeout(start, 1500);
-    // }, 1500),
-
-
     start() {
-        autoSlider.change();
+        this.change();
         this.interval = setInterval(this.change.bind(this), 1500)
     },
 
     change(){
         if (this.currentSlide < this.images.length -1) {
-            this.currentSlide++;
             this.imageElem.src = this.images[this.currentSlide];
+            this.currentSlide++;
         } else {
-            this.currentSlide = -1;
+            this.currentSlide = 0;
+            clearInterval(this.interval);
             this.start();
         }
     },
+
+
 };
 
-// autoSlider.change();
 autoSlider.start();
