@@ -1,0 +1,189 @@
+
+/*COMMON STYLE*/
+.wrapper {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+}
+
+/*HEADER STYLE*/
+.container {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.header-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+
+.night-theme {
+    font-size: 28px;
+    line-height: 28px;
+    height: 50px;
+    width: 150px;
+    cursor: pointer;
+}
+
+.night-theme>img{
+    height: 30px;
+    width: 30px;
+}
+
+.title {
+    color: #4BCAFF;
+    font-size: 80px;
+    line-height: 94px;
+    text-decoration: none;
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 60px;
+    padding-bottom: 38px;
+}
+
+.title-syllable{
+    color: #000000;
+}
+
+.navigation-menu {
+    display: flex;
+    justify-content: center;
+    font-size: 24px;
+    line-height: 28px;
+    background: #35444F;
+    margin-bottom: 38px;
+}
+
+.navigation-menu-item {
+    display: inline-block;
+    border-left: 1px solid white;
+}
+
+.navigation-menu-link {
+    display: flex;
+    text-decoration: none;
+    padding: 26px 33px 19px 32px;
+    color: #FFFFFF;
+}
+
+/*MAIN STYLE*/
+.information{
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sidebar-box {
+    display: flex;
+    border: 1px solid black;
+    height: 400px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 345px;
+}
+
+.sidebar-menu-item{
+    color: #485863;
+    font-size: 27px;
+    text-align: left;
+}
+
+.sidebar-menu-link {
+    text-decoration: none;
+    color: #495863;
+    padding: 27px 44px;
+}
+
+.content-box{
+    width: 885px;
+}
+
+.picture-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    height: 530px;
+}
+
+.content-text{
+    color: #2C2C2C;
+    text-align: left;
+    margin-top: 35px;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+.footer-box{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 54px;
+    margin-bottom: 30px;
+    background-color: rgba(99, 105, 110, 0.48);
+}
+
+.footer-menu{
+    display: flex;
+    align-items: center;
+    height: 70px;
+}
+
+.footer-menu-item{
+    display: inline-block;
+}
+
+.footer-menu-link {
+    text-decoration: none;
+    color: #0C1927;
+    font-size: 28px;
+    line-height: 28px;
+   padding: 21px 40px;
+}
+
+.footer-text{
+    color: #010101;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+
+
+
+
+
+.night{
+    background: darkslateblue;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
