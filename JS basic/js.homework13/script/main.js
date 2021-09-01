@@ -13,6 +13,8 @@ buttonChange.addEventListener('click', () => {
    }
 });
 
-if (localStorage.getItem('background')){
-    // ??????????
+window.onload = () => {
+    if(localStorage.getItem('background') === 'night'){
+        wrapper.classList.add('night');
+    }
 }
