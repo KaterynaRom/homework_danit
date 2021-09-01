@@ -10,6 +10,8 @@ const autoSlider = {
     currentSlide: 0,
     container: document.querySelector('.images-wrapper'),
     imageElem: document.querySelector('.images-wrapper img'),
+    stopButton: document.querySelector('.stop-show'),
+    runButton: document.querySelector('.run-show'),
 
     start() {
         this.change();
@@ -17,7 +19,7 @@ const autoSlider = {
     },
 
     change(){
-        if (this.currentSlide < this.images.length -1) {
+        if (this.currentSlide < this.images.length) {
             this.imageElem.src = this.images[this.currentSlide];
             this.currentSlide++;
         } else {
@@ -27,7 +29,20 @@ const autoSlider = {
         }
     },
 
+    stopSlide(){
+        this.stopButton.addEventListener('click', e => {
+            clearInterval(this.interval);
+        });
+    },
 
+    runSlide(){
+        this.runButton.addEventListener('click', e => {
+            clearInterval(this.interval);
+            this.start();
+        });
+    },
 };
 
 autoSlider.start();
+autoSlider.runSlide();
+autoSlider.stopSlide();
