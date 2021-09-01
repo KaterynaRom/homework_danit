@@ -3,6 +3,7 @@
 .wrapper {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
+    padding-bottom: 30px;
 }
 
 /*HEADER STYLE*/
@@ -125,7 +126,6 @@
     justify-content: space-around;
     align-items: center;
     margin-top: 54px;
-    margin-bottom: 30px;
     background-color: rgba(99, 105, 110, 0.48);
 }
 
