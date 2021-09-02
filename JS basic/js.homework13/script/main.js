@@ -4,13 +4,13 @@ const wrapper = document.querySelector('.wrapper');
 
 buttonChange.addEventListener('click', () => {
 
-   wrapper.classList.toggle('night');
+    wrapper.classList.toggle('night');
 
-   if(wrapper.classList.contains('night')){
-       localStorage.setItem('background', 'night');
-   } else {
-       localStorage.setItem('background', '');
-   }
+    if(wrapper.classList.contains('night')){
+        localStorage.setItem('background', 'night');
+    } else {
+        localStorage.setItem('background', '');
+    }
 });
 
 window.onload = () => {
