@@ -9,8 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.com/KatyaRom/homework.git"
+    "url": "git+https://gitlab.com/KatyaRom/homework.git"
   },
+  "bugs": {
+    "url": "https://gitlab.com/KatyaRom/homework/issues"
+  },
+  "homepage": "https://gitlab.com/KatyaRom/homework#readme",
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.27.5",
     "eslint": "^7.32.0",
