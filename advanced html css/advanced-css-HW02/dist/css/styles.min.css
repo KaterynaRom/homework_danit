@@ -1,0 +1,23 @@
+* {
+  margin: 0 auto;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}
+.header ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+}

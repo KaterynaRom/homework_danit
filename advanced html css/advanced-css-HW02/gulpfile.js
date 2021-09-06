@@ -1,21 +1,14 @@
 import gulp from "gulp";
 import concat from "gulp-concat";
 import minify from "gulp-minify";
-// import uglify from "gulp-uglify";
 import cleanCSS from "gulp-clean-css";
 import autoprefixer from "gulp-autoprefixer";
 import clean from "gulp-clean";
 import imagemin from "gulp-imagemin";
-
-
-// import sass from "gulp-sass";
 import gulpSass from "gulp-sass";
 import nodeSass from "sass";
 const sass = gulpSass(nodeSass);
-
-
 import purgecss from "gulp-purgecss";
-
 import BS from 'browser-sync';
 const browserSync = BS.create();
 
@@ -24,15 +17,19 @@ const browserSync = BS.create();
 
 const buildCss = () =>  gulp.src("src/scss/*.scss").
 pipe(sass().on('error', sass.logError)).
-pipe(purgecss({
-  content: ['src/**/*.html']
-})).
+    // ******************раскомментировать по окончанию работы
+// pipe(purgecss({
+//   content: ['src/**/*.html']
+// })).
 pipe(concat("styles.min.css")).
+// не рабает автопрефикс
 // pipe(autoprefixer({
 //     browsers: ['last 3 versions'],
 //     cascade: false
 // })).
-pipe(cleanCSS({compatibility: 'ie8'})).
+
+    // ******************раскомментировать по окончанию работы
+// pipe(cleanCSS({compatibility: 'ie8'})).
 pipe(gulp.dest("dist/css"));
 
 
