@@ -6,7 +6,14 @@ import cleanCSS from "gulp-clean-css";
 import autoprefixer from "gulp-autoprefixer";
 import clean from "gulp-clean";
 import imagemin from "gulp-imagemin";
-import sass from "gulp-sass";
+
+
+// import sass from "gulp-sass";
+import gulpSass from "gulp-sass";
+import nodeSass from "sass";
+const sass = gulpSass(nodeSass);
+
+
 import purgecss from "gulp-purgecss";
 
 import BS from 'browser-sync';
@@ -41,7 +48,6 @@ const minifyImages = () => gulp.src("src/img/*").pipe(imagemin()).pipe(gulp.dest
 gulp.task("buildCss", buildCss);
 gulp.task("buildJs", buildJS);
 gulp.task("minifyImages", minifyImages);
-// gulp.task('build', gulp.series("buildCss", "buildJs", 'minifyImages'));
 gulp.task("cleanDist", cleanDist);
 
 
@@ -55,4 +61,4 @@ const dist = () => {
 }
 
 gulp.task('dev', dist);
-// gulp.task('build', build());
+gulp.task('build', gulp.series("buildCss", "buildJs", 'minifyImages'));
