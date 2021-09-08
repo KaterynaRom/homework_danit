@@ -3,6 +3,8 @@ const menu = document.querySelector('.header__nav');
 
 button.addEventListener('click', () => {
     menu.classList.toggle('.header__nav--active');
-    // button.innerHTML.toggle = `<img src="src/img/menu-button-open.svg" alt="">`;
-
+    const active = document.querySelector('.header__nav--active');
+    if (active) {
+        button.innerHTML = `<img src="dist/img/menu-button-open.svg" alt="">`;
+    }
 });
