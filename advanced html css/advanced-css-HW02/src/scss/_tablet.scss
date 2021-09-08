@@ -1,0 +1,61 @@
+
+@media (min-width: $tablet) {
+
+  .header {
+    &__nav {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      position: static;
+    }
+    &__button {
+      display: none;
+    }
+    &__nav-item {
+      background: transparent;
+      margin: 42px 0;
+    }
+    &__nav-link {
+    }
+  }
+
+  .posts {
+    &__title {
+      font-size: $desktop-text;
+      line-height: 22px;
+    }
+  }
+
+  .card {
+    display: flex;
+    &__title {
+      font-size: $desktop-text;
+    }
+    &__info {
+      margin-left: 20px;
+    }
+    &__text {
+      display: flex;
+    }
+    &--last {
+      display: flex;
+    }
+  }
+
+  .contacts {
+    &__title {
+      font-size: $desktop-text;
+    }
+    &__text{
+      width: 684px;
+      font-size: $desktop-text;
+      line-height: 28px;
+    }
+    &__info {
+      flex-direction: row;
+      font-size: $desktop-text;
+      line-height: 26px;
+    }
+  }
+}

@@ -8,35 +8,20 @@ import imagemin from "gulp-imagemin";
 import gulpSass from "gulp-sass";
 import nodeSass from "sass";
 const sass = gulpSass(nodeSass);
-import purgecss from "gulp-purgecss";
 import BS from 'browser-sync';
 const browserSync = BS.create();
 
+const buildCss = () =>  gulp.src("src/scss/*.scss")
+    .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer({cascade: false}))
+    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(concat("styles.min.css"))
+    .pipe(gulp.dest("dist/css"));
 
-// ***********************************************
-
-const buildCss = () =>  gulp.src("src/scss/*.scss").
-pipe(sass().on('error', sass.logError)).
-    // ******************раскомментировать по окончанию работы
-// pipe(purgecss({
-//   content: ['src/**/*.html']
-// })).
-pipe(concat("styles.min.css")).
-// не рабает автопрефикс
-// pipe(autoprefixer({
-//     browsers: ['last 3 versions'],
-//     cascade: false
-// })).
-
-    // ******************раскомментировать по окончанию работы
-// pipe(cleanCSS({compatibility: 'ie8'})).
-pipe(gulp.dest("dist/css"));
-
-
-const buildJS = () => gulp.src("src/js/*.js").
-pipe(concat("scripts.min.js")).
-pipe(minify()).
-pipe(gulp.dest("dist/js"));
+const buildJS = () => gulp.src("src/js/*.js")
+    .pipe(concat("scripts.min.js"))
+    .pipe(minify())
+    .pipe(gulp.dest("dist/js"));
 
 const cleanDist = () => gulp.src("dist/*", {read: false}).pipe(clean());
 
@@ -46,7 +31,6 @@ gulp.task("buildCss", buildCss);
 gulp.task("buildJs", buildJS);
 gulp.task("minifyImages", minifyImages);
 gulp.task("cleanDist", cleanDist);
-
 
 const dist = () => {
     browserSync.init({
@@ -58,4 +42,4 @@ const dist = () => {
 }
 
 gulp.task('dev', dist);
-gulp.task('build', gulp.series("buildCss", "buildJs", 'minifyImages'));
+gulp.task('build', gulp.series("cleanDist", "buildCss", "buildJs", 'minifyImages'));
