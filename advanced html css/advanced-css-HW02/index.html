@@ -6,32 +6,109 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Adaptive</title>
-   <link rel="stylesheet" href="./dist/css/styles.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./dist/css/styles.min.css">
   
 </head>
 
 <body>
-  <header class="head">
-    <button class="head__nav-btn"></button>
-    <ul class="header head__mobile-menu">
-      <li><a href="/#" class="head__mobile-link">Home</a></li>
-      <li><a href="/#" class="head__mobile-link">About Us</a></li>
-      <li><a href="/#" class="head__mobile-link">Our Journal</a></li>
-      <li><a href="/#" class="head__mobile-link">Projects</a></li>
-      <li><a href="/#" class="head__mobile-link">news</a></li>
-      <li><a href="/#" class="head__mobile-link">features</a></li>
-      <li><a href="/#" class="head__mobile-link">contact</a></li>
-    </ul>
+<div class="wrapper">
+  <header class="header">
+
+    <div class="header__wrapper">
+
+      <ul class="header__nav header__nav--inactive">
+        <li class="header__nav-item"><a href="#" class="header__nav-link">Home</a></li>
+        <li class="header__nav-item"><a href="#" class="header__nav-link">About Us</a></li>
+        <li class="header__nav-item"><a href="#" class="header__nav-link">Our Journal</a></li>
+        <li class="header__nav-item"><a href="#" class="header__nav-link">Projects</a></li>
+        <li class="header__nav-item"><a href="#" class="header__nav-link">news</a></li>
+        <li class="header__nav-item"><a href="#" class="header__nav-link">features</a></li>
+        <li class="header__nav-item"><a href="#" class="header__nav-link">contact</a></li>
+      </ul>
+
+      <a class="header__button"><img src="src/img/menu-button-closed.svg" alt=""></a>
+
+    </div>
+
   </header>
-  <section class="hero"></section>
+  
+  <main class="posts">
+    <img class="posts__img" src="src/img/intro-img%201.jpg" alt="intro">
 
-  <main class="blog"></main>
+    <h2 class="posts__title">- our Recent posts</h2>
+
+    <section class="posts__cards-box">
+
+      <div class="posts__card card">
+        <img src="src/img/po1.jpg" alt="">
+        <h3 class="card__title">Aenean Adipiscing Etiam Vestibulum</h3>
+        <span class="card__text-comments">Photography, Journal   /   9 Comments</span>
+        <p class="card__text none">
+          Etiam porta sem malesuada euismod. Aenean leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+        </p>
+      </div>
+
+      <div class="posts__card card">
+        <img src="src/img/po2.jpg" alt="">
+        <h3 class="card__title">Aenean Adipiscing Etiam Vestibulum</h3>
+        <span class="card__text-comments">Photography, Journal   /   9 Comments</span>
+        <p class="card__text none">
+          Etiam porta sem malesuada euismod. Aenean leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+        </p>
+      </div>
+
+      <div class="posts__card card">
+        <img src="src/img/po3.jpg" alt="">
+        <h3 class="card__title">Aenean Adipiscing Etiam Vestibulum</h3>
+        <span class="card__text-comments">Photography, Journal   /   9 Comments</span>
+        <p class="card__text none">
+          Etiam porta sem malesuada euismod. Aenean leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+        </p>
+      </div>
+
+      <div class="posts__card card">
+        <img src="src/img/po4.jpg" alt="">
+        <h3 class="card__title">Aenean Adipiscing Etiam Vestibulum</h3>
+        <span class="card__text-comments">Photography, Journal   /   9 Comments</span>
+        <p class="card__text none">
+          Etiam porta sem malesuada euismod. Aenean leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.
+        </p>
+      </div>
+
+    </section>
+  </main>
 
 
-  <footer class="contacts"></footer>
+
+  <footer class="contacts">
+    <h3 class="contacts__title">- get in touch with us -</h3>
+    <p class="contacts__text">
+      Maecenas faucibus molli interdum. Cras mattis consectetur purus sitor amet sed donec malesuada ullamcorper odio.
+    </p>
+    
+    <div class="contacts__icons">
+      <img src="src/img/RSS.svg" alt="">
+      <img src="src/img/Facebook.svg" alt="">
+      <img src="src/img/Twitter.svg" alt="">
+      <img src="src/img/Dribbble.svg" alt="">
+      <img src="src/img/Pinterest.svg" alt="">
+    </div>
+    
+    <div class="contacts__info">
+      <p class="contacts__info--address">Moonshine St. 14-05 Light City /</p>
+      <p class="contacts__info--tel">+00 (123) 456 78 90 /</p>
+      <p class="contacts__info--mail">first.last@email.com</p>
+    </div>
 
 
+  </footer>
+
+<!--  <script src="./src/js/index.js"></script>-->
   <script src="./dist/js/scripts.min.js"></script>
+</div>
 </body>
 
 

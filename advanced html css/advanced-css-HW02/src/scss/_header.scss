@@ -1,0 +1,174 @@
+
+.wrapper{
+ width: 320px;
+
+.none {
+  display: none;
+}
+
+}
+
+//header
+.header {
+
+  &__wrapper {
+
+  }
+
+
+  &__button {
+    display: flex;
+    justify-content: flex-end;
+    margin: 23px 0;
+
+    position: relative;
+  }
+
+
+  &__nav {
+    width: 180px;
+
+    display: flex;
+    flex-direction: column;
+
+    position: absolute;
+    top: 59px;
+    right: 0;
+  }
+
+  &__nav--inactive {
+    display: none;
+  }
+
+  &__nav--active {
+    display: flex;
+  }
+
+  &__nav-item {
+    background: #F5F5F5;
+  }
+
+  &__nav-item:active{
+    background: #E5E5E5;
+  }
+
+  &__nav-link{
+    color: #4E4E4E;
+    font-size: 11px;
+    line-height: 30px;
+    text-transform: uppercase;
+    margin-left: 12px;
+
+  }
+
+}
+
+
+
+//posts
+.posts {
+  &__img {
+    width: 100%;
+
+  }
+  &__title {
+    color: #4E4E4E;
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 700;
+
+    padding-top: 38px;
+
+  }
+  &__cards-box {
+
+  }
+  &__card {
+    margin-top: 23px;
+    margin-bottom: 6px;
+
+  }
+}
+
+
+
+.card{
+  &__title {
+    font-size: 14px;
+    line-height: 30px;
+    color: #4E4E4E;
+    font-weight: 700;
+
+  }
+
+  &__text-comments {
+    font-size: 11px;
+    line-height: 20px;
+    color: #7C7C7C;
+  }
+
+  &__text {
+    color: #5C5C5C;
+    font-size: 14px;
+    line-height: 26px;
+
+  }
+}
+
+
+
+
+
+//footer
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+
+  &__title {
+    color: #FEFEFE;
+    font-size: 14px;
+    line-height: 22px;
+    text-transform: uppercase;
+    font-weight: 700;
+
+    padding-top: 38px;
+    padding-bottom: 8px;
+
+  }
+  &__text {
+    display: flex;
+    text-align: center;
+    color: #B9B9B9;
+    font-size: 12px;
+    line-height: 20px;
+
+    margin: 0 35px;
+
+  }
+  &__icons {
+    margin: 25px 0;
+
+  }
+
+  &__info {
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    color: #B9B9B9;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+}
+
+
+.contacts__icons>img {
+  width: 34px;
+  height: 34px;
+}
