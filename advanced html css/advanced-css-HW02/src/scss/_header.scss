@@ -1,20 +1,17 @@
 
 .wrapper{
- width: 320px;
+  width: 100%;
+}
 
 .none {
   display: none;
 }
 
-}
-
 //header
 .header {
-
   &__wrapper {
 
   }
-
 
   &__button {
     display: flex;
@@ -27,10 +24,7 @@
 
   &__nav {
     width: 180px;
-
-    display: flex;
-    flex-direction: column;
-
+    @include flex-column;
     position: absolute;
     top: 59px;
     right: 0;
@@ -45,7 +39,7 @@
   }
 
   &__nav-item {
-    background: #F5F5F5;
+    background: $background-nav;
   }
 
   &__nav-item:active{
@@ -53,12 +47,16 @@
   }
 
   &__nav-link{
-    color: #4E4E4E;
+    color: $title-color;
     font-size: 11px;
     line-height: 30px;
     text-transform: uppercase;
     margin-left: 12px;
+    cursor: pointer;
+  }
 
+  &__nav-link--home {
+    color: $nav-home;
   }
 
 }
@@ -67,22 +65,25 @@
 
 //posts
 .posts {
+  margin-bottom: 30px;
+
   &__img {
     width: 100%;
 
   }
   &__title {
-    color: #4E4E4E;
-    font-size: 14px;
-    line-height: 22px;
+    color: $title-color;
+    @include text-size14_22;
     font-weight: 700;
 
     padding-top: 38px;
 
   }
+
   &__cards-box {
 
   }
+
   &__card {
     margin-top: 23px;
     margin-bottom: 6px;
@@ -96,7 +97,7 @@
   &__title {
     font-size: 14px;
     line-height: 30px;
-    color: #4E4E4E;
+    color: $title-color;
     font-weight: 700;
 
   }
@@ -108,12 +109,19 @@
   }
 
   &__text {
+    display: none;
+
     color: #5C5C5C;
     font-size: 14px;
     line-height: 26px;
 
   }
+  &--last{
+    display: none;
+  }
+
 }
+
 
 
 
@@ -122,19 +130,16 @@
 //footer
 
 .contacts {
-  display: flex;
-  flex-direction: column;
+  @include flex-column;
   justify-content: center;
   align-items: center;
-  background: #000;
+  background: $background-footer;
 
   &__title {
     color: #FEFEFE;
-    font-size: 14px;
-    line-height: 22px;
+    @include text-size14_22;
     text-transform: uppercase;
     font-weight: 700;
-
     padding-top: 38px;
     padding-bottom: 8px;
 
@@ -145,7 +150,6 @@
     color: #B9B9B9;
     font-size: 12px;
     line-height: 20px;
-
     margin: 0 35px;
 
   }
@@ -155,21 +159,99 @@
   }
 
   &__info {
-
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     text-align: center;
-
     color: #B9B9B9;
     font-size: 14px;
     line-height: 24px;
     margin-bottom: 50px;
   }
-
 }
-
 
 .contacts__icons>img {
   width: 34px;
   height: 34px;
+}
+//*********************************************
+
+@media (min-width: $tablet) {
+
+  .header {
+    &__nav {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+
+      position: static;
+
+    }
+    &__button {
+      display: none;
+    }
+
+    &__nav-item {
+      background: transparent;
+      margin: 42px 0;
+    }
+
+    &__nav-link {
+
+    }
+  }
+
+  .posts{
+    &__title{
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+
+  .card {
+    display: flex;
+
+    &__title {
+      font-size: 16px;
+    }
+
+    &__info {
+      margin-left: 20px;
+    }
+
+    &__text {
+      display: flex;
+    }
+
+    &--last {
+      display: flex;
+
+    }
+  }
+
+  .contacts {
+    &__title {
+      font-size: 16px;
+    }
+    &__text{
+      width: 684px;
+      font-size: 16px;
+      line-height: 28px;
+    }
+    &__info {
+      flex-direction: row;
+      font-size: 16px;
+      line-height: 26px;
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .posts{
+    &__cards-box {
+      display: grid;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 }
