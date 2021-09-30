@@ -6,8 +6,10 @@ import autoprefixer from "gulp-autoprefixer";
 import clean from "gulp-clean";
 import imagemin from "gulp-imagemin";
 import gulpSass from "gulp-sass";
+
 import nodeSass from "sass";
 const sass = gulpSass(nodeSass);
+
 import BS from 'browser-sync';
 const browserSync = BS.create();
 
