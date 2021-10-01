@@ -14,7 +14,6 @@ class Employee {
     this._age = age;
     this._salary = salary;
   }
-
   get name (){
     return this._name.toLowerCase();
   }
