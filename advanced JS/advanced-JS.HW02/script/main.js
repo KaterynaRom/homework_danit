@@ -39,25 +39,10 @@ const books = [
 //   пункта, не должны появиться на странице.
 
 class Books {
-  constructor() {
+  constructor(array, author, name, price) {
+    this.array = array;
     this.container = document.createElement('div');
     this.list = document.createElement('ul');
-  }
-
-  createElements () {
-    this.container.setAttribute('id', 'root');
-    this.container.append(this.list);
-  }
-
-  render (selector = 'body') {
-    this.createElements();
-    document.querySelector(selector).append(this.container);
-  }
-}
-
-class BooksList extends Books {
-  constructor (author, name, price) {
-    super();
     this.author = author;
     this.name = name;
     this.price = price;
@@ -67,8 +52,9 @@ class BooksList extends Books {
     this.priceContainer = document.createElement('p');
   }
 
-  createElements() {
-    super.createElements();
+  createElements () {
+    this.container.setAttribute('id', 'root');
+    this.container.append(this.list);
     this.authorContainer.innerHTML = this.author;
     this.nameContainer.innerHTML = this.name;
     this.priceContainer.innerHTML = this.price;
@@ -78,14 +64,29 @@ class BooksList extends Books {
     this.list.append(this.priceContainer);
   }
 
-  fillList () {
-
+  render (selector = 'body') {
+    this.createElements();
+    document.querySelector(selector).append(this.container);
   }
 
+  fillList (array) {
+    this.list.innerHTML = array.map(e => {
+      try {
+        if(e.author && e.name && e.price){
+          (`<li>${e.author}: ${e.name}, price ${e.price}</li>`).join('');
+        } else if (!e.author){
+          new Error(`no property: ${e.author}`);
+        } else if(!e.name) {
+          new Error(`no property: ${e.name}`);
+        } else if(!e.price) {
+          new Error(`no property: ${e.price}`);
+        }
+      }
+
+      catch(e){
+        console.error(e);
+      }
+    })
+  }
 }
-
-
-
-
-
 
