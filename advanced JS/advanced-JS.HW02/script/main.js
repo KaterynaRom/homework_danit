@@ -27,41 +27,19 @@ const books = [
     name: "Дед Снегур и Морозочка",
   }
 ];
-// 1.Выведите этот массив на экран в виде списка (тег ul - список должен
-// быть сгенерирован с помощью Javascript).
-// 2.На странице должен находиться div с id="root", куда и нужно будет положить
-// этот список (похожая задача была дана в модуле basic).
-// 3. Перед выводом обьекта на странице, нужно проверить его на корректность
-// (в объекте должны содержаться все три свойства - author, name, price).
-// Если какого-то из этих свойств нету, в консоли должна высветиться ошибка
-// с указанием - какого свойства нету в обьекте.
-// 4.Те элементы массива, которые являются некорректными по условиям предыдущего
-//   пункта, не должны появиться на странице.
 
 class Books {
-  constructor(array, author, name, price) {
+  constructor(array) {
     this.array = array;
     this.container = document.createElement('div');
     this.list = document.createElement('ul');
-    this.author = author;
-    this.name = name;
-    this.price = price;
-
-    this.authorContainer = document.createElement('p');
-    this.nameContainer = document.createElement('p');
-    this.priceContainer = document.createElement('p');
+    this.render();
+    this.fillList();
   }
 
   createElements () {
     this.container.setAttribute('id', 'root');
     this.container.append(this.list);
-    this.authorContainer.innerHTML = this.author;
-    this.nameContainer.innerHTML = this.name;
-    this.priceContainer.innerHTML = this.price;
-
-    this.list.append(this.authorContainer);
-    this.list.append(this.nameContainer);
-    this.list.append(this.priceContainer);
   }
 
   render (selector = 'body') {
@@ -69,24 +47,27 @@ class Books {
     document.querySelector(selector).append(this.container);
   }
 
-  fillList (array) {
-    this.list.innerHTML = array.map(e => {
+  fillList () {
+    this.list.innerHTML = this.array.map(e => {
       try {
         if(e.author && e.name && e.price){
-          (`<li>${e.author}: ${e.name}, price ${e.price}</li>`).join('');
+          return (`<li>${e.author}: ${e.name}, price ${e.price}</li>`);
         } else if (!e.author){
-          new Error(`no property: ${e.author}`);
+          throw new Error('no property: author');
         } else if(!e.name) {
-          new Error(`no property: ${e.name}`);
+          throw new Error('no property: name');
         } else if(!e.price) {
-          new Error(`no property: ${e.price}`);
+          throw new Error('no property: price');
         }
       }
 
-      catch(e){
-        console.error(e);
+      catch(error){
+        console.error(error);
       }
-    })
+    }).join('');
   }
 }
+
+const booksList = new Books(books);
+console.log(booksList);
 
