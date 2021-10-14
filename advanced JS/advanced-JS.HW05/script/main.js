@@ -21,7 +21,7 @@ axios.get(urlUsers).then(({ data, status }) => {
       data.forEach(({ userId: id, title, body: text, id: postId }) => {
         const email = users[`id-${id}`].email;
         const name = users[`id-${id}`].name;
-        container.append(new Card(title, text, name, email, id, postId).render());
+        container.append(new Card(name, email, title, text, id, postId).render());
       })
     } else {
       console.error('Bad response')
