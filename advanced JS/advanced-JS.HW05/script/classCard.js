@@ -16,7 +16,8 @@ export class Card {
     this.button.classList.add('delete');
     this.button.innerHTML = 'X';
     this.button.addEventListener('click', this.deleteCard.bind(this));
-    this.card.insertAdjacentHTML('beforeend', `
+
+      this.card.insertAdjacentHTML('beforeend', `
         <p>${this.name}</p>
         <p>${this.email}</p>
         <h3>${this.title}</h3>
@@ -25,14 +26,15 @@ export class Card {
     return this.card;
   }
 
-  deleteCard (){
-  
-    this.button.addEventListener('click', e => {
-      axios.delete(`https://ajax.test-danit.com/api/json/posts/${this.postId}`, {
-
-
-      })
-    })
+  async deleteCard () {
+   console.log(this.postId);
+    return await axios.delete(`https://ajax.test-danit.com/api/json/posts/${this.postId}`)
+      .then(({ status }) => {
+        if(status === 200){
+          this.card.outerHTML = '';
+        } else {
+          console.error('Bad response')
+        }
+      });
   }
-
 }
