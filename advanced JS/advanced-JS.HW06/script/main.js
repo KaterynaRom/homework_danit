@@ -9,33 +9,37 @@
 //   Все запросы на сервер необходимо выполнить с помощью async await.
 
 const urlIp = 'https://api.ipify.org/?format=json';
-const urlUser = 'https://ip-api.com/';
+const urlUser = 'http://ip-api.com/json/';
 
 const button = document.querySelector('.button');
-button.addEventListener('click', async () => {})
+const container = document.querySelector('.container');
+button.addEventListener('click', getInfo);
 
-async function getIp () {
+async function getInfo () {
   await fetch(urlIp).then(res => {
     if (res.ok) {
       return res.json();
     } else {
       console.error('Bad response')
     }
+  }).then(({ip}) => {
+    fetch(urlUser+ip).then(res => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        console.error('Bad response')
+      }
+    }).then(({ country, regionName, region, city, zip }) => {
+      container.insertAdjacentHTML('beforeend', `
+        <p>country: ${country}</p>
+        <p>region name: ${regionName}</p>
+        <p>region: ${region}</p>
+        <p>city: ${city}</p>
+        <p>zip: ${zip}</p>
+      `)
+    })
   })
-    .then(({ip}) => {
-      fetch(urlUser+ip).then(res => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          console.error('Bad response')
-        }
-      })
-    });
-
-
-
-
 }
 
-getIp();
+
 
