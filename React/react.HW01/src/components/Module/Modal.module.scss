@@ -1,0 +1,32 @@
+.background {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, .8);
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  color: #61dafb;
+}
+
+.text {
+  color: brown;
+}
+
+.buttons {
+  display: flex;
+}
+
+.modal > button {
+  background: olivedrab;
+}
