@@ -1,0 +1,17 @@
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10%;
+
+}
+
+.app > button {
+  color: #FFFFFF;
+  font-size: 22px;
+  margin: 10px;
+  border: 0;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+}

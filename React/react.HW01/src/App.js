@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import Modal from './components/Module/Modal';
 import Button from './components/Button/Button';
+import styles from './App.module.scss'
 
 class App extends React.Component {
   state = {
     isOpenFirst: false,
     isOpenSecond: false,
-    closeButton: true,
+    closeModalButton: true,
     buttons: [
       {
         text: 'Open first modal',
@@ -14,41 +15,41 @@ class App extends React.Component {
       },
       {
         text: 'Open second modal',
-        background: '#f0b6b6',
+        background: '#211eb3',
       },
     ],
 
     modalWindows: [
       {
         closeButton: true,
-        title: 'fddg',
-        text: 'fdfdfgvfgg katya',
+        title: 'Do you want to delete this file?',
+        text: 'Once you delete this file, it won’t be possible to undo this action. Are you sure you want to delete it?',
       },
 
       {
         closeButton: true,
-        title: 'sffeszfggg222222',
-        text: 'fdfdfgvfgg 222222222222222',
+        title: 'Do you want to go to another site?',
+        text: 'By confirming this action, you consent to the processing of your personal data by another server.',
       },
     ],
   }
 
   render() {
-    const { buttons, modalWindows, closeButton, isOpenFirst, isOpenSecond } = this.state;
+    const { buttons, modalWindows, closeModalButton, isOpenFirst, isOpenSecond } = this.state;
 
     return (
-      <div className="App">
+      <div className={styles.app}>
         <Button text={buttons[0].text} onClick={(event) => {
           this.setState(current => ({...current, isOpenFirst: !current.isOpenFirst}));
           event.target.blur();
         }} backgroundColor={buttons[0].background}/>
 
-        {(isOpenFirst && closeButton) ? <Modal
-          closeButton={<button>✖</button>}
-          title={modalWindows[0].title}
+        {isOpenFirst ? <Modal
+          closeButton={closeModalButton ? <button onClick={this.closeModal}>✖</button> : null}
+          header={modalWindows[0].title}
           text={modalWindows[0].text}
           closeModal = {this.closeModal}
-          actions={<><button onClick={this.closeModal}>Ok</button>
+          actions={<><button onClick={this.modalOk}>Ok</button>
             <button onClick={this.closeModal}>Cancel</button></>}
         /> : null}
 
@@ -58,27 +59,26 @@ class App extends React.Component {
         }} backgroundColor={buttons[1].background}/>
 
         {isOpenSecond ? <Modal
-          title={modalWindows[1].title}
+          closeButton={closeModalButton ? <button onClick={this.closeModal}>✖</button> : null}
+          header={modalWindows[1].title}
           text={modalWindows[1].text}
           closeModal = {this.closeModal}
-          actions={<><button onClick={this.closeModal}>Ok</button>
+          actions={<><button onClick={this.modalOk}>Ok</button>
             <button onClick={this.closeModal}>Cancel</button></>}
         /> : null}
       </div>
     );
   }
 
-  openModal = () => {
-  this.setState({
-    isOpenFirst: true,
-    isOpenSecond: true,
-    })
+  modalOk = () => {
+    console.log('Ok');
+    this.closeModal()
   }
 
   closeModal = () => {
-  this.setState({
-    isOpenFirst: false,
-    isOpenSecond: false,
+    this.setState({
+      isOpenFirst: false,
+      isOpenSecond: false,
     })
   }
 }
