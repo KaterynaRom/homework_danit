@@ -29,7 +29,7 @@ class App extends React.Component {
       {
         closeButton: true,
         title: 'Do you want to go to another site?',
-        text: 'By confirming this action, you consent to the processing of your personal data by another server.',
+        text: 'By confirming this action, you consent to the processing of your personal data. Send your personal data?',
       },
     ],
   }
@@ -63,8 +63,7 @@ class App extends React.Component {
           header={modalWindows[1].title}
           text={modalWindows[1].text}
           closeModal = {this.closeModal}
-          actions={<><button onClick={this.modalOk}>Ok</button>
-            <button onClick={this.closeModal}>Cancel</button></>}
+          actions={<><button onClick={this.modalOk}>Submit</button></>}
         /> : null}
       </div>
     );
