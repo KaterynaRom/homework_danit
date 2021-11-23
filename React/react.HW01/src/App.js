@@ -1,54 +1,21 @@
 import React, {Component} from 'react';
-import Modal from './components/Module/Modal';
+import Modal from './components/Modal/Modal';
 import Button from './components/Button/Button';
-import styles from './App.module.scss'
-import ButtonModal from "./components/ButtonsModal/ButtonModal";
+import styles from './App.module.scss';
+import ButtonModal from './components/ButtonsModal/ButtonModal';
+import buttonModal from './config/buttonModal';
+import modalWindows from './config/modalWindows';
+import buttons from './config/buttons';
 
 class App extends React.Component {
   state = {
     isOpenFirst: false,
     isOpenSecond: false,
     closeModalButton: true,
-    buttons: [
-      {
-        text: 'Open first modal',
-        background: 'red'
-      },
-      {
-        text: 'Open second modal',
-        background: '#211eb3',
-      },
-    ],
-
-    modalWindows: [
-      {
-        closeButton: true,
-        title: 'Do you want to delete this file?',
-        text: 'Once you delete this file, it won’t be possible to undo this action. Are you sure you want to delete it?',
-      },
-
-      {
-        closeButton: true,
-        title: 'Do you want to go to another site?',
-        text: 'By confirming this action, you consent to the processing of your personal data. Send your personal data?',
-      },
-    ],
-
-    buttonModal: [
-      {
-        text: 'Ok',
-      }, {
-        text: 'Cancel',
-      }, {
-        text: 'Submit',
-      }, {
-        text: '✖',
-      }
-    ]
   }
 
   render() {
-    const { buttons, modalWindows, closeModalButton, isOpenFirst, isOpenSecond, buttonModal } = this.state;
+    const {closeModalButton, isOpenFirst, isOpenSecond, } = this.state;
 
     return (
       <div className={styles.app}>
