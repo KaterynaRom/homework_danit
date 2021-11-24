@@ -1,4 +1,4 @@
-const modalWindows = [
+const modalContent = [
   {
     title: 'Do you want to delete this file?',
     text: 'Once you delete this file, it won’t be possible to undo this action. Are you sure you want to delete it?',
@@ -10,4 +10,4 @@ const modalWindows = [
   },
 ];
 
-export default modalWindows;
+export default modalContent;

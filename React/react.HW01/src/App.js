@@ -4,7 +4,7 @@ import Button from './components/Button/Button';
 import styles from './App.module.scss';
 import ButtonModal from './components/ButtonsModal/ButtonModal';
 import buttonModal from './config/buttonModal';
-import modalWindows from './config/modalWindows';
+import modalContent from './config/modalContent';
 import buttons from './config/buttons';
 
 class App extends React.Component {
@@ -26,8 +26,8 @@ class App extends React.Component {
 
         {isOpenFirst ? <Modal
           closeButton={closeModalButton ? <ButtonModal onClick={this.closeModal} text={buttonModal[3].text}/> : null}
-          header={modalWindows[0].title}
-          text={modalWindows[0].text}
+          header={modalContent[0].title}
+          text={modalContent[0].text}
           closeModal = {this.closeModal}
           actions={<>
             <ButtonModal onClick={this.modalOk} text={buttonModal[0].text}/>
@@ -41,8 +41,8 @@ class App extends React.Component {
 
         {isOpenSecond ? <Modal
           closeButton={closeModalButton ? <ButtonModal onClick={this.closeModal} text={buttonModal[3].text}/> : null}
-          header={modalWindows[1].title}
-          text={modalWindows[1].text}
+          header={modalContent[1].title}
+          text={modalContent[1].text}
           closeModal = {this.closeModal}
           actions={<ButtonModal onClick={this.modalOk} text={buttonModal[2].text}/>}
         /> : null}

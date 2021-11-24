@@ -12,7 +12,7 @@ class CardsContainer extends PureComponent {
         <h1 className={styles.title}>grocery store</h1>
         <div className={styles.container}>
           {products && products.map(product =>
-            <Card key={product.name} name={product.name} price={product.price} img={product.img}
+            <Card key={product.code} name={product.name} price={product.price} img={product.img}
                   color={product.color} code={product.code}
           // addItem={addItem} toggleFav={toggleFav}
           />)}

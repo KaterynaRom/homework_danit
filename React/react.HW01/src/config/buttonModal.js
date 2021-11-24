@@ -10,4 +10,4 @@ const buttonModal = [
   }
 ]
 
-export default buttonModal
+export default buttonModal;
