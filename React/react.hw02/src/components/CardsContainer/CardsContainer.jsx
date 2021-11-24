@@ -6,7 +6,6 @@ class CardsContainer extends PureComponent {
 
   render() {
     const {products} = this.props;
-    // addItem, toggleFav
 
     return (
       <div className={styles.wrapper}>
@@ -15,7 +14,6 @@ class CardsContainer extends PureComponent {
           {products && products.map(product =>
             <Card key={product.code} name={product.name} price={product.price} img={product.img}
                   color={product.color} code={product.code}
-              // addItem={addItem} toggleFav={toggleFav}
             />)}
         </div>
       </div>

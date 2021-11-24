@@ -6,24 +6,30 @@ import Modal from '../Module/Modal';
 import modalContent from '../../config/modalContent';
 import ButtonModal from '../ButtonsModal/ButtonModal';
 import buttonModal from '../../config/buttonModal';
+import {ReactComponent as Favourite} from '../../icons/favourite.svg';
+import {ReactComponent as FavouriteActive} from '../../icons/fav_active.svg';
 
 class Card extends PureComponent {
   state = {
     isOpenModal: false,
     closeModalButton: true,
+    isFavourite: false,
   }
 
   render() {
-    const {isOpenModal, closeModalButton} = this.state;
+    const {isOpenModal, closeModalButton, isFavourite} = this.state;
     const {name, price, img, code, color} = this.props;
 
     return (
       <div className={styles.cardWrapper}>
-
-        {/*<div className={styles.favourites} onClick={() => toggleFav(name)}>*/}
-        {/*  {isFavourite && <StarRemove className={styles.svg}/>}*/}
-        {/*  {!isFavourite && <StarAdd/>}*/}
-        {/*</div>*/}
+        <div className={styles.favourites} onClick={() => {
+          {this.setState(current => (
+            {...current, isFavourite: !current.isFavourite})
+          )}
+        }}>
+          {!isFavourite && <Favourite className={styles.svg}/>}
+          {isFavourite && <FavouriteActive className={styles.svg}/>}
+        </div>
 
         <p className={styles.name}>{name}</p>
         <img className={styles.img} src={img} alt={name}/>
@@ -38,9 +44,7 @@ class Card extends PureComponent {
 
         {isOpenModal ? <Modal
           closeButton={closeModalButton ? <ButtonModal onClick={this.closeModal} text={buttonModal[3].text}/> : null}
-          header={modalContent[0].title}
-          text={modalContent[0].text}
-          closeModal = {this.closeModal}
+          header={modalContent[0].title} text={modalContent[0].text} closeModal = {this.closeModal}
           actions={<>
             <ButtonModal onClick={this.modalOk} text={buttonModal[0].text}/>
             <ButtonModal onClick={this.closeModal} text={buttonModal[1].text}/>

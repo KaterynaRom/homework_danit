@@ -1,16 +1,6 @@
 import React, {Component} from 'react';
-import Modal from "./components/Module/Modal";
-import Button from './components/Button/Button';
 import CardsContainer from './components/CardsContainer/CardsContainer';
-import Card from './components/Card/Card';
 import styles from './App.module.scss';
-import ButtonModal from './components/ButtonsModal/ButtonModal';
-import buttonModal from './config/buttonModal';
-import modalContent from './config/modalContent';
-import buttons from './config/buttons';
-
-
-
 
 class App extends React.Component {
   state = {
@@ -27,20 +17,13 @@ class App extends React.Component {
   }
 
   render() {
-    const {closeModalButton, isOpenFirst, products } = this.state;
+    const { products } = this.state;
 
     return (
       <div className={styles.wrapper}>
-
-        <CardsContainer products={products}
-          // toggleFav={toggleFav} addItem={addItem}
-        />
-        {/*<div>*/}
-        {/*  <Card items={cartItems}/>*/}
-        {/*</div>*/}
+        <CardsContainer products={products}/>
       </div>
     );
-
   }
 
   modalOk = () => {
