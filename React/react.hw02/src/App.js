@@ -32,9 +32,9 @@ class App extends React.Component {
     return (
       <div className={styles.wrapper}>
 
-          <CardsContainer products={products}
-            // toggleFav={toggleFav} addItem={addItem}
-          />
+        <CardsContainer products={products}
+          // toggleFav={toggleFav} addItem={addItem}
+        />
         {/*<div>*/}
         {/*  <Card items={cartItems}/>*/}
         {/*</div>*/}

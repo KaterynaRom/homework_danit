@@ -6,7 +6,7 @@ class Button extends React.PureComponent {
   render() {
     const {text, onClick, backgroundColor} = this.props;
     return(
-      <button onClick={onClick} style={{backgroundColor}}>{text}</button>
+      <button className={styles.button} onClick={onClick} style={{backgroundColor}}>{text}</button>
     )
   }
 }

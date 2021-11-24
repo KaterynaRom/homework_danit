@@ -1,6 +1,6 @@
 const buttons = [
   {
-    text: 'Open first modal',
+    text: 'Add to cart',
     background: 'red'
   },
   {
