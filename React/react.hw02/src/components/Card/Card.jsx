@@ -14,21 +14,24 @@ class Card extends PureComponent {
     isOpenModal: false,
     closeModalButton: true,
     isFavourite: false,
+    inCart: false,
   }
 
   render() {
-    const {isOpenModal, closeModalButton, isFavourite} = this.state;
+    const {isOpenModal, closeModalButton, isFavourite } = this.state;
     const {name, price, img, code, color} = this.props;
+    const stateInCart = localStorage.getItem(`${code}inCart`);
+    const stateFav =  localStorage.getItem(`${code}isFavourite`);
 
     return (
       <div className={styles.cardWrapper}>
-        <div className={styles.favourites} onClick={() => {
-          {this.setState(current => (
-            {...current, isFavourite: !current.isFavourite})
-          )}
-        }}>
-          {!isFavourite && <Favourite className={styles.svg}/>}
-          {isFavourite && <FavouriteActive className={styles.svg}/>}
+        <div className={styles.favourites}
+          onClick={() => {
+            {this.setState(current => ({...current, isFavourite: !current.isFavourite}))}
+            localStorage.setItem(`${code}isFavourite`, !isFavourite);}}>
+
+          {(stateFav==='false' || !isFavourite) && <Favourite className={styles.svg}/>}
+          {(stateFav==='true') && <FavouriteActive className={styles.svg}/>}
         </div>
 
         <p className={styles.name}>{name}</p>
@@ -36,30 +39,28 @@ class Card extends PureComponent {
         <p className={styles.price}>price: {price}$</p>
         <p className={styles.colorProduct}>color: {color}</p>
         <p className={styles.code}>Code: {code}</p>
-        <Button className={styles.buttonAdd} text={buttons[0].text} onClick={
-          (event) => {this.setState(current => ({...current, isOpenModal: !current.isOpenModal}));
-          event.target.blur();
-         }
-        }/>
+        <Button className={styles.buttonAdd} text={buttons[0].text} onClick={() => {
+          this.setState(current => ({...current, isOpenModal: !current.isOpenModal}));
+        }}/>
 
         {isOpenModal ? <Modal
           closeButton={closeModalButton ? <ButtonModal onClick={this.closeModal} text={buttonModal[3].text}/> : null}
           header={modalContent[0].title} text={modalContent[0].text} closeModal = {this.closeModal}
-          actions={<>
-            <ButtonModal onClick={this.modalOk} text={buttonModal[0].text}/>
-            <ButtonModal onClick={this.closeModal} text={buttonModal[1].text}/>
-          </>}/> : null}
+          actions={
+            <>
+              <ButtonModal text={buttonModal[0].text}
+              onClick={() => {this.setState(current => ({...current, inCart: !current.inCart}));
+                localStorage.setItem(`${code}stateInCart`, !stateInCart);
+                this.closeModal();}}/>
+              <ButtonModal onClick={this.closeModal} text={buttonModal[1].text}/>
+            </>
+          }/> : null}
       </div>
     )
   }
 
-  modalOk = () => {
-    console.log('Ok');
-    this.closeModal();
-  }
-
   closeModal = () => {
-    this.setState({isOpenModal: false})
+    this.setState({isOpenModal: false});
   }
 }
 

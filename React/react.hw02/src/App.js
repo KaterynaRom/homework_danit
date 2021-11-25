@@ -6,8 +6,8 @@ class App extends React.Component {
   state = {
     isOpenFirst: false,
     closeModalButton: true,
-    isFavourite: false,
-    products: [],
+    // isFavourite: false,
+    // products: [],
   }
 
   async componentDidMount() {
@@ -26,17 +26,17 @@ class App extends React.Component {
     );
   }
 
-  modalOk = () => {
-    console.log('Ok');
-    this.closeModal()
-  }
-
-  closeModal = () => {
-    this.setState({
-      isOpenFirst: false,
-      isOpenSecond: false,
-    })
-  }
+  // modalOk = () => {
+  //   console.log('Ok');
+  //   this.closeModal()
+  // }
+  //
+  // closeModal = () => {
+  //   this.setState({
+  //     isOpenFirst: false,
+  //     isOpenSecond: false,
+  //   })
+  // }
 }
 
 export default App;
