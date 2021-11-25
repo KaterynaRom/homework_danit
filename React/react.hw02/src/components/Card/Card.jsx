@@ -8,6 +8,7 @@ import ButtonModal from '../ButtonsModal/ButtonModal';
 import buttonModal from '../../config/buttonModal';
 import {ReactComponent as Favourite} from '../../icons/favourite.svg';
 import {ReactComponent as FavouriteActive} from '../../icons/fav_active.svg';
+import PropTypes from 'prop-types';
 
 class Card extends PureComponent {
   state = {
@@ -62,6 +63,18 @@ class Card extends PureComponent {
   closeModal = () => {
     this.setState({isOpenModal: false});
   }
+}
+
+Card.propTypes = {
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  img: PropTypes.string.isRequired,
+  code: PropTypes.number.isRequired,
+  color: PropTypes.string,
+}
+
+Card.defaultProps = {
+  color: 'no color information',
 }
 
 export default Card;

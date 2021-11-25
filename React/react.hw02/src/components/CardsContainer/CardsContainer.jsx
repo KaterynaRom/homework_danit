@@ -1,6 +1,7 @@
-import React, {PureComponent} from "react";
+import React, {PureComponent} from 'react';
 import styles from './CardsContainer.module.scss'
-import Card from "../Card/Card";
+import Card from '../Card/Card';
+import PropTypes from 'prop-types';
 
 class CardsContainer extends PureComponent {
 
@@ -20,6 +21,10 @@ class CardsContainer extends PureComponent {
 
     )
   }
+}
+
+CardsContainer.propTypes = {
+  products: PropTypes.array.isRequired,
 }
 
 export default CardsContainer;

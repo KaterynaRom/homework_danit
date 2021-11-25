@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react';
 import styles from './Modal.module.scss';
+import PropTypes from 'prop-types';
 
 class Modal extends React.PureComponent {
 
@@ -23,8 +24,19 @@ class Modal extends React.PureComponent {
   }
 }
 
-Modal.propTypes = {};
+Modal.propTypes = {
+  header: PropTypes.string,
+  text: PropTypes.string,
+  closeModal: PropTypes.func,
+  actions: PropTypes.array.isRequired,
+  closeButton: PropTypes.func,
+}
 
-Modal.defaultProps = {};
+Modal.defaultProps = {
+  header: 'information',
+  text: 'Confirm your actions.',
+  closeModal: () => {},
+  closeButton: () => {},
+}
 
 export default Modal;
