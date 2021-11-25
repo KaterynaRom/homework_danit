@@ -14,7 +14,7 @@ class Button extends React.PureComponent {
 
 Button.propTypes = {
   text: PropTypes.string.isRequired ,
-  onClick: PropTypes,
+  onClick: PropTypes.func,
   backgroundColor: PropTypes.string,
 }
 

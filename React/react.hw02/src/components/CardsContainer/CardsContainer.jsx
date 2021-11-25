@@ -24,7 +24,11 @@ class CardsContainer extends PureComponent {
 }
 
 CardsContainer.propTypes = {
-  products: PropTypes.array.isRequired,
+  products: PropTypes.array,
+}
+
+CardsContainer.defaultProps = {
+  products: [],
 }
 
 export default CardsContainer;
