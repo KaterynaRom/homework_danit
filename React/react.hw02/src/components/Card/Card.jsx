@@ -21,15 +21,15 @@ class Card extends PureComponent {
   render() {
     const {isOpenModal, closeModalButton, isFavourite } = this.state;
     const {name, price, img, code, color} = this.props;
-    const stateInCart = localStorage.getItem(`${code}inCart`);
-    const stateFav =  localStorage.getItem(`${code}isFavourite`);
+    const stateInCart = localStorage.getItem(`${name}${code}inCart`);
+    const stateFav =  localStorage.getItem(`${name}${code}isFavourite`);
 
     return (
       <div className={styles.cardWrapper}>
         <div className={styles.favourites}
           onClick={() => {
             {this.setState(current => ({...current, isFavourite: !current.isFavourite}))}
-            localStorage.setItem(`${code}isFavourite`, !isFavourite);}}>
+            localStorage.setItem(`${name}${code}isFavourite`, !isFavourite);}}>
 
           {(stateFav==='false' || !isFavourite) && <Favourite className={styles.svg}/>}
           {(stateFav==='true') && <FavouriteActive className={styles.svg}/>}
@@ -51,7 +51,7 @@ class Card extends PureComponent {
             <>
               <ButtonModal text={buttonModal[0].text}
               onClick={() => {this.setState(current => ({...current, inCart: !current.inCart}));
-                localStorage.setItem(`${code}stateInCart`, !stateInCart);
+                localStorage.setItem(`${name}${code}stateInCart`, !stateInCart);
                 this.closeModal();}}/>
               <ButtonModal onClick={this.closeModal} text={buttonModal[1].text}/>
             </>
