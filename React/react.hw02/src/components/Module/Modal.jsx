@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import styles from './Modal.module.scss';
 import PropTypes from 'prop-types';
 
-class Modal extends React.PureComponent {
+class Modal extends PureComponent {
 
   render () {
     const { header, text, closeModal, actions, closeButton } = this.props;

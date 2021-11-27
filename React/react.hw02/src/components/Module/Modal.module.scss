@@ -73,14 +73,22 @@
   border-radius: 4px;
 }
 
+.buttons> button:hover {
+  background: brown;
+}
+
+.modal > button:hover {
+  background: brown;
+}
+
 .buttons > button:first-child {
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .modal > button {
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 15px;
+  right: 15px;
   color: #FFFFFF;
   font-size: 20px;
   border: 0;
