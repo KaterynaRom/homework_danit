@@ -28,7 +28,6 @@ Modal.propTypes = {
   header: PropTypes.string,
   text: PropTypes.string,
   closeModal: PropTypes.func,
-  actions: PropTypes.array.isRequired,
   closeButton: PropTypes.func,
 }
 
