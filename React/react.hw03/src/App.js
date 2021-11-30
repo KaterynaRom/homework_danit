@@ -6,12 +6,13 @@ const App = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    (async () => {
+    (async() => {
       const response = await fetch('./productsList.json')
-        .then(res => res.json());
+        .then(response => response.json());
+
       setProducts(response);
     })()
-  }, [])
+  },[])
 
   return (
     <div className={styles.wrapper}>
