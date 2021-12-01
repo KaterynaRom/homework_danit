@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import CardsContainer from './components/CardsContainer/CardsContainer';
 import styles from './App.module.scss';
+import {BrowserRouter} from "react-router-dom";
+import Routes from "./components/Routes/Routes";
+import Header from "./components/Heder/Header";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -15,9 +18,12 @@ const App = () => {
   },[])
 
   return (
-    <div className={styles.wrapper}>
-      <CardsContainer products={products}/>
-    </div>
+    <BrowserRouter>
+      <div className={styles.wrapper}>
+        <Header/>
+        <Routes products={products}/>
+      </div>
+    </BrowserRouter>
   )
 }
 

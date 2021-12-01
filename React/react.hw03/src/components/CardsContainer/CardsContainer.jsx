@@ -8,7 +8,6 @@ const CardsContainer = (props) => {
 
     return (
       <div className={styles.wrapper}>
-        <h1 className={styles.title}>grocery store</h1>
         <div className={styles.cardsContainer}>
           {products && products.map(product =>
             <Card key={product.code} name={product.name} price={product.price} img={product.img}
