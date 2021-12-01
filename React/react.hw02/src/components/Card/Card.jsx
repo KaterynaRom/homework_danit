@@ -2,7 +2,7 @@ import React, {PureComponent} from 'react';
 import styles from './Card.module.scss'
 import Button from '../Button/Button';
 import buttons from '../../config/buttons';
-import Modal from '../Module/Modal';
+import Modal from '../Modal/Modal';
 import modalContent from '../../config/modalContent';
 import buttonModal from '../../config/buttonModal';
 import {ReactComponent as Favourite} from '../../icons/favourite.svg';

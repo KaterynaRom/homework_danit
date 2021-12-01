@@ -1,10 +1,11 @@
 import React, {PureComponent} from 'react';
 import styles from './Modal.module.scss';
+import PropTypes from 'prop-types';
 
-class Modal extends React.PureComponent {
-  render(){
-    const { header, text, closeModal, actions, closeButton } = this.props;
-    console.log(this.props)
+class Modal extends PureComponent {
+
+  render () {
+    const { header, text, closeModal, closeButton } = this.props;
 
     return (
       <div className={styles.modalWrapper}>
@@ -15,18 +16,26 @@ class Modal extends React.PureComponent {
             <div className={styles.title}>{header}</div>
           </div>
           <div className={styles.text}>{text}</div>
-          <div className={styles.buttons}>
-            {actions}
-          </div>
+          <div className={styles.buttons}>{actions}</div>
         </div>
       </div>
 
     );
   }
-};
+}
 
-Modal.propTypes = {};
+Modal.propTypes = {
+  header: PropTypes.string,
+  text: PropTypes.string,
+  closeModal: PropTypes.func,
+  closeButton: PropTypes.func,
+}
 
-Modal.defaultProps = {};
+Modal.defaultProps = {
+  header: 'information',
+  text: 'Confirm your actions.',
+  closeModal: () => {},
+  closeButton: () => {},
+}
 
 export default Modal;
