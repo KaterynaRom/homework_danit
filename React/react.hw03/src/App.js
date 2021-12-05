@@ -14,7 +14,6 @@ const App = () => {
   const [cart, setCart] = useState([]);
   const [currentName, setCurrentName] = useState("");
   const [isAddModal, setIsAddModal] = useState(true);
-  const [isFavourite, setIsFavourite] = useState([]);
 
   useEffect(() => {
     // if (localStorage.getItem('cart')) {
@@ -26,11 +25,20 @@ const App = () => {
         .then(response => response.json());
       setProducts(response);
     })()
-  },[]);
+  },[products]);
 
-  const toggleFav = () => {
-    setIsFavourite(!isFavourite);
-    saveFavToLS(JSON.stringify(isFavourite));
+  const toggleFav = (name) => {
+    const index = products.findIndex(({name: arrayName}) => {
+      return name === arrayName;
+    })
+    setProducts(current => {
+      const newState = [...current];
+      newState[index].isFavourite = !newState[index].isFavourite ;
+      console.log( newState[index].isFavourite)
+      console.log(!newState[index].isFavourite)
+      console.log(newState)
+      return newState;
+    })
   }
 
   const saveToLS = (cart) => {
@@ -38,9 +46,9 @@ const App = () => {
 
   }
 
-  const saveFavToLS = (isFavourite) => {
-    localStorage.setItem('favourite', JSON.stringify(isFavourite));
-  }
+  // const saveFavToLS = (isFavourite) => {
+  //   localStorage.setItem('favourite', JSON.stringify(isFavourite));
+  // }
 
   const openModal = (name, type ='add') => {
     if (type === 'delete') {
@@ -106,7 +114,7 @@ const App = () => {
     <BrowserRouter>
       <div className={styles.wrapper}>
         <Header/>
-        <Routes isFavourite={isFavourite} toggleFav={toggleFav} cart={cart} products={products} openModal={openModal}/>
+        <Routes toggleFav={toggleFav} cart={cart} products={products} openModal={openModal}/>
           <Modal isOpen={isOpen} setIsOpen={setIsOpen}
             title={changeModalTitle()} text={changeModalText()} actions={
               <>

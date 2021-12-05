@@ -12,10 +12,11 @@ const Card = (props) => {
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.favourites} onClick={() => {
-        toggleFav();
-        console.log('toggle')
-      }}>
-        {isFavourite ? <FavouriteActive/> : <Favourite/>}
+        toggleFav(name);
+        console.log(isFavourite)
+      }} >
+        {isFavourite && <FavouriteActive/>}
+        {!isFavourite && <Favourite />}
       </div>
 
       <p className={styles.name}>{name}</p>
