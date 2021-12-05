@@ -14,7 +14,7 @@ const App = () => {
   const [cart, setCart] = useState([]);
   const [currentName, setCurrentName] = useState("");
   const [isAddModal, setIsAddModal] = useState(true);
-  const [isFavourite, setIsFavourite] = useState(false);
+  const [isFavourite, setIsFavourite] = useState([]);
 
   useEffect(() => {
     // if (localStorage.getItem('cart')) {
