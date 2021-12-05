@@ -7,17 +7,15 @@ import {ReactComponent as FavouriteActive} from '../../icons/fav_active.svg';
 import PropTypes from 'prop-types';
 
 const Card = (props) => {
-  const {name, price, img, code, color, openModal} = props;
-  const [isFavourite, setIsFavourite] = useState(localStorage.getItem(`${name}${code}isFavourite`) === 'true' || false);
+  const {name, price, img, code, color, openModal, toggleFav, isFavourite } = props;
 
   return (
     <div className={styles.cardWrapper}>
-      <div className={styles.favourites} onClick={ () => {
-        setIsFavourite(!isFavourite);
-        localStorage.setItem(`${name}${code}isFavourite`, String(!isFavourite));
+      <div className={styles.favourites} onClick={() => {
+        toggleFav();
+        console.log('toggle')
       }}>
-        {!isFavourite && <Favourite className={styles.svg}/>}
-        {isFavourite && <FavouriteActive className={styles.svg}/>}
+        {isFavourite ? <FavouriteActive/> : <Favourite/>}
       </div>
 
       <p className={styles.name}>{name}</p>

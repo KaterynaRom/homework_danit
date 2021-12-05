@@ -4,14 +4,14 @@ import Card from "../../components/Card/Card";
 import PropTypes from "prop-types";
 
 const HomePage = (props) => {
-  const { products, openModal } = props;
+  const { products, openModal, toggleFav, isFavourite } = props;
   return (
     <div>
       <h1>Home  Page</h1>
       <div className={styles.wrapper}>
         <div className={styles.cardsContainer}>
           {products && products.map(product =>
-            <Card openModal={openModal} key={product.code} name={product.name} price={product.price} img={product.img}
+            <Card isFavourite={isFavourite} toggleFav={toggleFav} openModal={openModal} key={product.code} name={product.name} price={product.price} img={product.img}
                   color={product.color} code={product.code}
             />)}
         </div>
