@@ -34,9 +34,10 @@ const App = () => {
     setProducts(current => {
       const newState = [...current];
       newState[index].isFavourite = !newState[index].isFavourite ;
+      localStorage.setItem(`favourite${name}`, JSON.stringify(!newState[index].isFavourite));
       console.log( newState[index].isFavourite)
       console.log(!newState[index].isFavourite)
-      console.log(newState)
+      console.log(products)
       return newState;
     })
   }
