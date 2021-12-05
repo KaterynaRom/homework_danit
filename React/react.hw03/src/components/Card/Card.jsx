@@ -2,22 +2,13 @@ import React, {useEffect, useState} from 'react';
 import styles from './Card.module.scss'
 import Button from '../Button/Button';
 import buttons from '../../config/buttons';
-import Modal from '../Modal/Modal';
-import modalContent from '../../config/modalContent';
-import buttonModal from '../../config/buttonModal';
 import {ReactComponent as Favourite} from '../../icons/favourite.svg';
 import {ReactComponent as FavouriteActive} from '../../icons/fav_active.svg';
 import PropTypes from 'prop-types';
 
 const Card = (props) => {
-  const {name, price, img, code, color} = props;
-
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  const [isCloseModalBtn, setIsCloseModalBtn] = useState(true);
+  const {name, price, img, code, color, openModal} = props;
   const [isFavourite, setIsFavourite] = useState(localStorage.getItem(`${name}${code}isFavourite`) === 'true' || false);
-  const [inCart, setInCart] = useState(false);
-
-  const stateInCart = localStorage.getItem(`${name}${code}inCart`);
 
   return (
     <div className={styles.cardWrapper}>
@@ -25,7 +16,6 @@ const Card = (props) => {
         setIsFavourite(!isFavourite);
         localStorage.setItem(`${name}${code}isFavourite`, String(!isFavourite));
       }}>
-
         {!isFavourite && <Favourite className={styles.svg}/>}
         {isFavourite && <FavouriteActive className={styles.svg}/>}
       </div>
@@ -35,21 +25,7 @@ const Card = (props) => {
       <p className={styles.price}>price: {price}$</p>
       <p className={styles.colorProduct}>color: {color}</p>
       <p className={styles.code}>Code: {code}</p>
-      <Button onClick={() => setIsOpenModal(!isOpenModal)} className={styles.buttonAdd} text={buttons[0].text}/>
-
-      {isOpenModal ? <Modal
-        closeButton={isCloseModalBtn ? <Button onClick={() => setIsOpenModal(false)} text={buttonModal[3].text}/> : null}
-        header={modalContent[0].title} text={modalContent[0].text} closeModal = {() => setIsOpenModal(false)}
-        actions={
-          <>
-            <Button text={buttonModal[0].text}
-              onClick={() => {
-                setInCart(!inCart);
-                localStorage.setItem(`${name}${code}stateInCart`,  JSON.stringify(!stateInCart));
-                setIsOpenModal(false);
-              }}/>
-            <Button onClick={() => setIsOpenModal(false)} text={buttonModal[1].text}/>
-          </>}/> : null}
+      <Button onClick={() => openModal(name)} className={styles.buttonAdd} text={buttons[0].text}/>
     </div>
   )
 }

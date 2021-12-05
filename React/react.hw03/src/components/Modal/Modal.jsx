@@ -1,23 +1,28 @@
 import React from 'react';
 import styles from './Modal.module.scss';
+import buttonModal from "../../config/buttonModal";
+import Button from "../Button/Button";
 import PropTypes from 'prop-types';
 
 const Modal = (props) => {
-  const { header, text, closeModal, actions, closeButton } = props;
+  const { title, text, actions, isOpen, setIsOpen } = props;
+
+  if (!isOpen) return null;
 
   return (
     <div className={styles.modalWrapper}>
-      <div className={styles.background} onClick={closeModal}/>
+      <div className={styles.background} onClick={() => setIsOpen(false)}/>
+
       <div className={styles.modal}>
-        {closeButton}
+        <Button onClick={() => setIsOpen(false)} text={buttonModal[3].text}/>
         <div className={styles.titleWrapper}>
-          <div className={styles.title}>{header}</div>
+          <div className={styles.title}>{title}</div>
         </div>
         <div className={styles.text}>{text}</div>
         <div className={styles.buttons}>{actions}</div>
       </div>
-    </div>
 
+    </div>
   );
 }
 

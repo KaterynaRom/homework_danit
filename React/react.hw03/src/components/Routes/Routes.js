@@ -4,16 +4,16 @@ import CartPage from "../../pages/CartPage";
 import FavouritePage from "../../pages/FavouritePage";
 
 const Routes = (props) => {
-  const { products } = props;
+  const { products, openModal, cart } = props;
 
   return (
     <Switch>
       <Route exact path = '/'>
-        <HomePage products={ products } />
+        <HomePage openModal={openModal} products={ products } />
       </Route>
 
       <Route exact path='/cart'>
-        <CartPage/>
+        <CartPage cart={cart} openModal={openModal} products={ products }/>
       </Route>
 
       <Route exact path='/favourite'>

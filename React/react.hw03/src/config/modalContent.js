@@ -5,8 +5,8 @@ const modalContent = [
   },
 
   {
-    title: 'Do you want to go to another site?',
-    text: 'By confirming this action, you consent to the processing of your personal data. Send your personal data?',
+    title: 'Are you sure you want to remove this item from your cart?',
+    text: 'After confirming the action, the item will be removed from the cart.',
   },
 ];
 

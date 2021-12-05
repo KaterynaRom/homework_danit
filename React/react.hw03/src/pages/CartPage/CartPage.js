@@ -1,11 +1,17 @@
 import React from "react";
+import CartProducts from "../../components/CartProducts";
 
-const CartPage = () => {
+const CartPage = ({ cart, openModal }) => {
+
   return (
-    <div>
-      <h1>CART PAGE</h1>
-      <div>zdes budut tovari v korzine  fff ksckjsnk</div>
-    </div>
+    <>
+      <h1>CART</h1>
+      <div>
+        {cart.map(element => {
+          return <CartProducts openModal={openModal} count={element.count} name={element.name}/>
+        })}
+      </div>
+    </>
   )
 }
 
