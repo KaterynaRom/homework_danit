@@ -13,7 +13,6 @@ const Card = (props) => {
     <div className={styles.cardWrapper}>
       <div className={styles.favourites} onClick={() => {
         toggleFav(name);
-        console.log(isFavourite)
       }} >
         {isFavourite && <FavouriteActive/>}
         {!isFavourite && <Favourite />}

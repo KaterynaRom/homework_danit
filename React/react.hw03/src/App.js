@@ -25,7 +25,7 @@ const App = () => {
         .then(response => response.json());
       setProducts(response);
     })()
-  },[products]);
+  },[]);
 
   const toggleFav = (name) => {
     const index = products.findIndex(({name: arrayName}) => {
@@ -33,11 +33,11 @@ const App = () => {
     })
     setProducts(current => {
       const newState = [...current];
-      newState[index].isFavourite = !newState[index].isFavourite ;
+      newState[index].isFavourite = !newState[index].isFavourite;
       localStorage.setItem(`favourite${name}`, JSON.stringify(!newState[index].isFavourite));
-      console.log( newState[index].isFavourite)
-      console.log(!newState[index].isFavourite)
-      console.log(products)
+      // console.log( newState[index].isFavourite)
+      // console.log(!newState[index].isFavourite)
+      // console.log(products)
       return newState;
     })
   }
@@ -125,12 +125,10 @@ const App = () => {
                       addToCart(currentName);
                     } else {
                       deleteFromCart(currentName);
-                    }
-                  }}/>
+                    }}}/>
                 <Button
                   onClick={() => setIsOpen(false)}
-                  text={buttonModal[1].text}
-                  />
+                  text={buttonModal[1].text}/>
               </>}
           />
       </div>
