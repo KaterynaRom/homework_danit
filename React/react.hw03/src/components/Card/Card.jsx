@@ -14,8 +14,7 @@ const Card = (props) => {
       <div className={styles.favourites} onClick={() => {
         toggleFav(name);
       }} >
-        {isFavourite && <FavouriteActive/>}
-        {!isFavourite && <Favourite />}
+        {isFavourite ? <FavouriteActive/> : <Favourite/>}
       </div>
 
       <p className={styles.name}>{name}</p>

@@ -13,8 +13,7 @@ const HomePage = (props) => {
         <div className={styles.cardsContainer}>
           {products && products.map(product =>
             <Card toggleFav={toggleFav} openModal={openModal} key={product.code} name={product.name} price={product.price} img={product.img}
-                  color={product.color} code={product.code}
-                  isFavourite={product.isFavourite}
+                  color={product.color} code={product.code} isFavourite={product.isFavourite}
             />)}
         </div>
       </div>

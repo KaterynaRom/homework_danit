@@ -4,79 +4,69 @@
     "price":1,
     "img":"products-img/red-apple.jpg",
     "code":111111,
-    "color":"red",
-    "isFavourite":"false"
+    "color":"red"
   },
   {
     "name":"pear",
     "price":2,
     "img":"products-img/pear.jpg",
     "code":111112,
-    "color":"yellow",
-    "isFavourite":"false"
+    "color":"yellow"
   },
   {
     "name":"banana",
     "price":2,
     "img":"products-img/bananas.jpg",
     "code":111113,
-    "color":"yellow",
-    "isFavourite":"false"
+    "color":"yellow"
   },
   {
     "name":"orange",
     "price":3,
     "img":"products-img/orange.jpg",
     "code":111114,
-    "color":"orange",
-    "isFavourite":"false"
+    "color":"orange"
   },
   {
     "name":"strawberry",
     "price":5,
     "img":"products-img/strawberry.jpg",
     "code":111115,
-    "color":"red",
-    "isFavourite":"false"
+    "color":"red"
   },
   {
     "name":"beet",
     "price":1,
     "img":"products-img/beet.jpg",
     "code":111116,
-    "color":"red",
-    "isFavourite":"false"
+    "color":"red"
   },
   {
     "name":"carrot",
     "price":1,
     "img":"products-img/carrot.jpg",
     "code":111117,
-    "color":"orange",
-    "isFavourite":"false"
+    "color":"orange"
   },
   {
     "name":"cucumber",
     "price":4,
     "img":"products-img/cucumber.jpg",
     "code":111118,
-    "color":"green",
-    "isFavourite":"false"
+    "color":"green"
   },
   {
     "name":"tomato",
     "price":3,
     "img":"products-img/tomato.jpg",
     "code":111119,
-    "color":"red",
-    "isFavourite":"false"
+    "color":"red"
   },
   {
     "name":"potatoes",
     "price":1,
     "img":"products-img/potatoes.jpg",
     "code":111120,
-    "color":"white",
-    "isFavourite":"false"
+    "color":"white"
   }
 ]

@@ -23,6 +23,7 @@ const App = () => {
     (async() => {
       const response = await fetch('./productsList.json')
         .then(response => response.json());
+      response.forEach(e => e.isFavourite = false);
       setProducts(response);
     })()
   },[]);
