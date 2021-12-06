@@ -17,7 +17,7 @@ const Routes = (props) => {
       </Route>
 
       <Route exact path='/favourite'>
-        <FavouritePage/>
+        <FavouritePage toggleFav={toggleFav} openModal={openModal} products={ products }/>
       </Route>
     </Switch>
   )

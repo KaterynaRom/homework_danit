@@ -16,17 +16,23 @@ const App = () => {
   const [isAddModal, setIsAddModal] = useState(true);
 
   useEffect(() => {
-    // if (localStorage.getItem('cart')) {
-    //   setCart(JSON.parse(localStorage.getItem('cart')))
-    // }
-
     (async() => {
       const response = await fetch('./productsList.json')
         .then(response => response.json());
       response.forEach(e => e.isFavourite = false);
+
+      //
+      // if (localStorage.getItem('cart')) {
+      //   setCart(JSON.parse(localStorage.getItem('cart')))
+      // }
+      // if (localStorage.getItem('favourite')) {
+      //   setProducts(JSON.parse(localStorage.getItem('favourite')))
+      // }
+
       setProducts(response);
     })()
   },[]);
+
 
   const toggleFav = (name) => {
     const index = products.findIndex(({name: arrayName}) => {
@@ -35,22 +41,18 @@ const App = () => {
     setProducts(current => {
       const newState = [...current];
       newState[index].isFavourite = !newState[index].isFavourite;
-      localStorage.setItem(`favourite${name}`, JSON.stringify(!newState[index].isFavourite));
-      // console.log( newState[index].isFavourite)
-      // console.log(!newState[index].isFavourite)
-      // console.log(products)
+      saveFavToLS(JSON.stringify(newState));
       return newState;
     })
   }
 
   const saveToLS = (cart) => {
     localStorage.setItem('cart', JSON.stringify(cart));
-
   }
 
-  // const saveFavToLS = (isFavourite) => {
-  //   localStorage.setItem('favourite', JSON.stringify(isFavourite));
-  // }
+  const saveFavToLS = (isFavourite) => {
+    localStorage.setItem('favourite', JSON.stringify(isFavourite));
+  }
 
   const openModal = (name, type ='add') => {
     if (type === 'delete') {
