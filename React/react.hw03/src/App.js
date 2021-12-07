@@ -12,73 +12,29 @@ const App = () => {
   const [products, setProducts] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [cart, setCart] = useState([]);
-  const [currentName, setCurrentName] = useState("");
+  // const [currentName, setCurrentName] = useState("");
+  const [currentCode, setCurrentCode] = useState("");
   const [isAddModal, setIsAddModal] = useState(true);
 
   useEffect(() => {
     (async() => {
       const response = await fetch('./productsList.json')
         .then(response => response.json());
-
-      response.forEach(e => {
-        e.isFavourite = false;
-        // const favLS = localStorage.getItem('favourite');
-        // const fav = JSON.parse(favLS);
-        // const f = JSON.parse(fav);
-        // console.log(typeof f);
-        // const favourite = f.map(elem => {
-        //   // console.log(elem)
-        //   if (elem.isFavourite) {
-        //     e.isFavourite = true;
-        //   } else {
-        //     e.isFavourite = false;
-        //   }
-        //   return elem
-        // })
-        // if (localStorage.getItem('favourite')) {
-        //   setProducts(JSON.parse(localStorage.getItem('favourite')))
-        // }
-        // console.log(fav)
-        // return favourite
-      });
-      // console.log(data)
-
-      //
-      // if (localStorage.getItem('cart')) {
-      //   setCart(JSON.parse(localStorage.getItem('cart')))
-      // }
-      // if (localStorage.getItem('favourite')) {
-      //   setProducts(JSON.parse(localStorage.getItem('favourite')))
-      // }
-
+      const favStatus = localStorage.getItem('favourites') || [];
+      response.forEach(prod => prod.isFavourite = favStatus.includes(prod.code));
       setProducts(response);
     })()
   },[]);
 
-  console.log(products)
 
   const toggleFav = (name) => {
     const index = products.findIndex(({name: arrayName}) => {
       return name === arrayName;
     })
-
-    console.log('index', index)
-
-    const newProducts = products.map((el, i) => {
-      if (index === i) {
-        el.isFavourite = ! el.isFavourite;
-      }
-      // el[index].isFavourite = !el[index].isFavourite;
-      return el
-    })
-
-    console.log(newProducts)
-
     setProducts(current => {
       const newState = [...current];
       newState[index].isFavourite = !newState[index].isFavourite;
-      saveFavToLS(JSON.stringify(newState));
-      // console.log('hhh', newState)
+      saveFavToLS();
       return newState;
     })
   }
@@ -87,29 +43,33 @@ const App = () => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }
 
-  const saveFavToLS = (isFavourite) => {
-    localStorage.setItem('favourite', JSON.stringify(isFavourite));
+  const saveFavToLS = () => {
+    const newFav = [];
+    products.forEach(prod => {
+      if (prod.isFavourite) newFav.push(prod.code);
+    });
+    localStorage.setItem('favourites', JSON.stringify(newFav));
   }
 
-  const openModal = (name, type ='add') => {
+  const openModal = (code, type ='add') => {
     if (type === 'delete') {
       setIsAddModal(false);
     } else {
       setIsAddModal(true);
     }
-    setCurrentName(name);
+    setCurrentCode(code);
     setIsOpen(true);
   }
 
-  const addToCart = (currentName) => {
+  const addToCart = (currentCode) => {
     setCart(current => {
-      const index = current.findIndex(({ name }) => {
-        return currentName === name
+      const index = current.findIndex(({ code }) => {
+        return currentCode === code
       })
 
       if (index === -1) {
-        saveToLS(JSON.stringify([...current, {name: currentName, count: 1}]));
-        return [...current, {name: currentName, count: 1}]
+        saveToLS(JSON.stringify([...current, {code: currentCode, count: 1}]));
+        return [...current, {code: currentCode, count: 1}]
       } else {
         const newState = [...current];
         newState[index].count = current[index].count + 1;
@@ -120,10 +80,10 @@ const App = () => {
     setIsOpen(false);
   }
 
-  const deleteFromCart = (currentName) => {
+  const deleteFromCart = (currentCode) => {
     setCart(current => {
-      const index = current.findIndex(({ name }) => {
-        return currentName === name
+      const index = current.findIndex(({ code }) => {
+        return currentCode === code
       })
 
       const newState = [...current];
@@ -156,21 +116,21 @@ const App = () => {
       <div className={styles.wrapper}>
         <Header/>
         <Routes toggleFav={toggleFav} cart={cart} products={products} openModal={openModal}/>
-          <Modal isOpen={isOpen} setIsOpen={setIsOpen}
-            title={changeModalTitle()} text={changeModalText()} actions={
-              <>
-                <Button text={buttonModal[0].text}
-                  onClick={() => {
-                    if (isAddModal) {
-                      addToCart(currentName);
-                    } else {
-                      deleteFromCart(currentName);
-                    }}}/>
-                <Button
-                  onClick={() => setIsOpen(false)}
-                  text={buttonModal[1].text}/>
-              </>}
-          />
+        <Modal isOpen={isOpen} setIsOpen={setIsOpen}
+               title={changeModalTitle()} text={changeModalText()} actions={
+          <>
+            <Button text={buttonModal[0].text}
+                    onClick={() => {
+                      if (isAddModal) {
+                        addToCart(currentCode);
+                      } else {
+                        deleteFromCart(currentCode);
+                      }}}/>
+            <Button
+              onClick={() => setIsOpen(false)}
+              text={buttonModal[1].text}/>
+          </>}
+        />
       </div>
     </BrowserRouter>
   )
