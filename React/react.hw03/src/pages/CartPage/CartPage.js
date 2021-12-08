@@ -2,24 +2,20 @@ import React from "react";
 import CartProducts from "../../components/CartProducts";
 
 const CartPage = ({ cart, openModal, products }) => {
-
+  const cartArr = cart.map()
   return (
     <>
       <h1>CART</h1>
+
       <div>
-        {cart.map(element => {
-          return <CartProducts openModal={openModal} count={element.count} code={element.code}
-                               name={() => {products.map(el => {
-              if (el.code === cart.code) {
-                console.log(el.name)
-                return el.name
-              }
-            })
-          }}
-          />
-        })}
+        {products.map( prod => )}
       </div>
-    </>
+      {/*<div>*/}
+      {/*  {products.map(element =>  true) }*/}
+          {/*// return <CartProducts openModal={openModal} count={element.count} code={element.code}*/}
+          {/*//                      name={products.filter(el => cart.includes(el.code))}/>*/}
+      {/*</div>*/}
+  </>
   )
 }
 

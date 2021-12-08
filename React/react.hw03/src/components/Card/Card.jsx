@@ -22,7 +22,9 @@ const Card = (props) => {
       <p className={styles.price}>price: {price}$</p>
       <p className={styles.colorProduct}>color: {color}</p>
       <p className={styles.code}>Code: {code}</p>
-      <Button onClick={() => openModal(code)} className={styles.buttonAdd} text={buttons[0].text}/>
+      <Button onClick={() => {
+        openModal(code)
+      }} className={styles.buttonAdd} text={buttons[0].text}/>
     </div>
   )
 }
