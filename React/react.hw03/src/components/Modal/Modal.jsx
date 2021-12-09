@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Modal.module.scss';
-import buttonModal from "../../config/buttonModal";
-import Button from "../Button/Button";
+import buttonModal from '../../config/buttonModal';
+import Button from '../Button/Button';
 import PropTypes from 'prop-types';
 
 const Modal = (props) => {
@@ -29,14 +29,12 @@ const Modal = (props) => {
 Modal.propTypes = {
   header: PropTypes.string,
   text: PropTypes.string,
-  closeModal: PropTypes.func,
   closeButton: PropTypes.func,
 }
 
 Modal.defaultProps = {
   header: 'information',
   text: 'Confirm your actions.',
-  closeModal: () => {},
   closeButton: () => {},
 }
 

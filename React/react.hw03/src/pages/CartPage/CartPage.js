@@ -1,5 +1,6 @@
-import React from "react";
-import CartProduct from "../../components/CartProduct";
+import React from 'react';
+import CartProduct from '../../components/CartProduct';
+import styles from './CartPage.module.scss'
 
 const CartPage = ({ cart, openModal, products }) => {
   let cartArray = [];
@@ -10,12 +11,11 @@ const CartPage = ({ cart, openModal, products }) => {
 
   return (
     <>
+      <div className={styles.wrapper}>
       <h1>CART</h1>
-      <div>
         {cartArray.map(el => el)}
       </div>
   </>
-  )
-}
+  )}
 
 export default CartPage;

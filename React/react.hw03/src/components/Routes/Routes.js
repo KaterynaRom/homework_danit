@@ -1,7 +1,7 @@
-import { Switch, Route } from "react-router-dom";
-import HomePage from "../../pages/HomePage";
-import CartPage from "../../pages/CartPage";
-import FavouritePage from "../../pages/FavouritePage";
+import { Switch, Route } from 'react-router-dom';
+import HomePage from '../../pages/HomePage';
+import CartPage from '../../pages/CartPage';
+import FavouritePage from '../../pages/FavouritePage';
 
 const Routes = (props) => {
   const { products, openModal, cart, toggleFav } = props;
@@ -21,6 +21,5 @@ const Routes = (props) => {
       </Route>
     </Switch>
   )
-
 }
 export default Routes;

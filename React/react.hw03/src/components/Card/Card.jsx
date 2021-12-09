@@ -1,4 +1,3 @@
-import React, {useEffect, useState} from 'react';
 import styles from './Card.module.scss'
 import Button from '../Button/Button';
 import buttons from '../../config/buttons';
@@ -33,14 +32,12 @@ Card.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   img: PropTypes.string.isRequired,
-  actions: PropTypes.element,
   code: PropTypes.number.isRequired,
   color: PropTypes.string,
 }
 
 Card.defaultProps = {
   color: 'no color information',
-  actions: '<></>',
 }
 
 export default Card;

@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import Modal from "./components/Modal/Modal";
+import Modal from './components/Modal/Modal';
 import styles from './App.module.scss';
-import {BrowserRouter} from "react-router-dom";
-import Routes from "./components/Routes/Routes";
-import Header from "./components/Heder/Header";
-import modalContent from "./config/modalContent";
-import Button from "./components/Button/Button";
-import buttonModal from "./config/buttonModal";
+import {BrowserRouter} from 'react-router-dom';
+import Routes from './components/Routes/Routes';
+import Header from './components/Heder/Header';
+import modalContent from './config/modalContent';
+import Button from './components/Button/Button';
+import buttonModal from './config/buttonModal';
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -28,7 +28,6 @@ const App = () => {
       if (cartStatusLS) {setCart(cartStatusLS)}
     })()
   },[]);
-
 
   const toggleFav = (name) => {
     const index = products.findIndex(({name: arrayName}) => {
@@ -66,8 +65,7 @@ const App = () => {
     setIsOpen(true);
   }
 
-  const addToCart = (currentCode) => {
-    setCart(current => {
+  const addToCart = (current) => {
       const index = current.findIndex(({ code }) => {
         return currentCode === code
       })
@@ -81,8 +79,6 @@ const App = () => {
         saveCartToLS(JSON.stringify(newState));
         return newState;
       }
-    })
-    setIsOpen(false);
   }
 
   const deleteFromCart = (currentCode) => {
@@ -99,42 +95,37 @@ const App = () => {
     setIsOpen(false);
   }
 
-  const changeModalTitle = () => {
+  const toggleModalFunctionality = () => {
     if (isAddModal) {
-      return modalContent[0].title
+      setCart(addToCart);
+      setIsOpen(false);
     } else {
-      return modalContent[1].title
+      deleteFromCart(currentCode);
     }
   }
 
-  const changeModalText = () => {
+  const changeModalContent = (component) => {
     if (isAddModal) {
-      return modalContent[0].text
+      return component[0]
     } else {
-      return modalContent[1].text
+      return component[1]
     }
   }
 
+  const titlesModal = modalContent.map(el => el.title)
+  const textsModal = modalContent.map(el => el.text)
 
   return (
     <BrowserRouter>
       <div className={styles.wrapper}>
         <Header/>
         <Routes toggleFav={toggleFav} cart={cart} products={products} openModal={openModal}/>
-        <Modal isOpen={isOpen} setIsOpen={setIsOpen}
-               title={changeModalTitle()} text={changeModalText()} actions={
-          <>
-            <Button text={buttonModal[0].text}
-                    onClick={() => {
-                      if (isAddModal) {
-                        addToCart(currentCode);
-                      } else {
-                        deleteFromCart(currentCode);
-                      }}}/>
-            <Button
-              onClick={() => setIsOpen(false)}
-              text={buttonModal[1].text}/>
-          </>}
+        <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={changeModalContent(titlesModal)}
+               text={changeModalContent(textsModal)} actions={
+              <>
+                <Button text={buttonModal[0].text} onClick={toggleModalFunctionality}/>
+                <Button onClick={() => setIsOpen(false)} text={buttonModal[1].text}/>
+              </>}
         />
       </div>
     </BrowserRouter>

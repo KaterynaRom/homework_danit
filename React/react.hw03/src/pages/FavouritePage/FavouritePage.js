@@ -1,6 +1,6 @@
-import React from "react";
-import Card from "../../components/Card/Card";
-import styles from "../HomePage/HomePage.module.scss";
+import React from 'react';
+import Card from '../../components/Card/Card';
+import styles from '../HomePage/HomePage.module.scss';
 
 const FavouritePage = (props) => {
   const { products, openModal, toggleFav} = props;
@@ -18,9 +18,6 @@ const FavouritePage = (props) => {
         })}
       </div>
     </div>
-
-  )
-
-}
+  )}
 
 export default FavouritePage;
