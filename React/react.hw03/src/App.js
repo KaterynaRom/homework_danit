@@ -39,7 +39,7 @@ const App = () => {
     })
   }
 
-  const saveToLS = (cart) => {
+  const saveCartToLS = (cart) => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }
 
@@ -68,13 +68,13 @@ const App = () => {
       })
 
       if (index === -1) {
-        saveToLS(JSON.stringify([...current, {code: currentCode, count: 1}]));
+        saveCartToLS(JSON.stringify([...current, {code: currentCode, count: 1}]));
         return [...current, {code: currentCode, count: 1}]
       } else {
         const newState = [...current];
         newState[index].count = current[index].count + 1;
 
-        saveToLS(JSON.stringify(newState));
+        saveCartToLS(JSON.stringify(newState));
         return newState;
       }
     })
@@ -89,9 +89,7 @@ const App = () => {
 
       const newState = [...current];
       newState.splice(index,1);
-
-                                         saveToLS(JSON.stringify(newState));
-
+      saveCartToLS(JSON.stringify(newState));
       return newState;
     })
     setIsOpen(false);

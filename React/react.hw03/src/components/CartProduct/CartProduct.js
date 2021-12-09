@@ -1,13 +1,14 @@
 import React from 'react';
-import styles from './CartProducts.module.scss';
+import styles from './CartProduct.module.scss';
 
 
-const CartProducts = ({ name, code, count, openModal }) => {
+const CartProduct = ({ name, img, code, count, openModal }) => {
     return (
         <div className={styles.countItem}>
           <div className={styles.wrapper}>
+            <img className={styles.img} src={img} alt="img"/>
             <span>{name}</span>
-            <span>{code}</span>
+            <span>(code: {code})</span>
           </div>
 
           <div className={styles.wrapper}>
@@ -18,4 +19,4 @@ const CartProducts = ({ name, code, count, openModal }) => {
     )
 }
 
-export default CartProducts;
+export default CartProduct;
