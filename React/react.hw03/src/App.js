@@ -12,7 +12,6 @@ const App = () => {
   const [products, setProducts] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [cart, setCart] = useState([]);
-  // const [currentName, setCurrentName] = useState("");
   const [currentCode, setCurrentCode] = useState("");
   const [isAddModal, setIsAddModal] = useState(true);
 
@@ -20,9 +19,13 @@ const App = () => {
     (async() => {
       const response = await fetch('./productsList.json')
         .then(response => response.json());
+
       const favStatus = localStorage.getItem('favourites') || [];
       response.forEach(prod => prod.isFavourite = favStatus.includes(prod.code));
       setProducts(response);
+
+      const cartStatusLS = JSON.parse(localStorage.getItem('cart'));
+      if (cartStatusLS) {setCart(cartStatusLS)}
     })()
   },[]);
 
@@ -40,13 +43,15 @@ const App = () => {
   }
 
   const saveCartToLS = (cart) => {
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem('cart', cart);
   }
 
   const saveFavToLS = () => {
     const newFav = [];
     products.forEach(prod => {
-      if (prod.isFavourite) newFav.push(prod.code);
+      if (prod.isFavourite) {
+        newFav.push(prod.code)
+      }
     });
     localStorage.setItem('favourites', JSON.stringify(newFav));
   }
@@ -73,7 +78,6 @@ const App = () => {
       } else {
         const newState = [...current];
         newState[index].count = current[index].count + 1;
-
         saveCartToLS(JSON.stringify(newState));
         return newState;
       }
