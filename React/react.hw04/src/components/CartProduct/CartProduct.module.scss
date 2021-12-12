@@ -1,0 +1,59 @@
+.countItem {
+  width: 90%;
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  position: relative;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+
+    div {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
+  }
+}
+
+.img {
+  width: 70px;
+  height: 70px;
+}
+
+.name {
+  font-size: 25px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.code {
+  font-size: 15px;
+  margin: 10px;
+}
+
+.deleteBtn {
+  padding: 7px 15px;
+  margin: 10px;
+  border: slategrey 1px solid;
+  border-radius: 4px;
+  background: #e1f0f0;
+
+}
+
+.deleteBtn:hover {
+  color: #FFFFFF;
+  background: #B3382C;
+}
+
+.count {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 10px;
+}
