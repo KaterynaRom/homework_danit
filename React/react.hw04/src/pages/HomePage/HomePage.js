@@ -13,7 +13,6 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(getProductsData());
-    console.log(products)
   },[]);
 
   return (

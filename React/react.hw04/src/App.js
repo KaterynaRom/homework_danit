@@ -19,7 +19,7 @@ const App = () => {
         <div className={styles.wrapper}>
           <Header/>
           <Routes/>
-          {/*<Modal/>*/}
+          <Modal/>
         </div>
       </BrowserRouter>
     </Provider>
