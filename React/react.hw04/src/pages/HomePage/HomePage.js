@@ -22,7 +22,9 @@ const HomePage = () => {
         <h1>Home Page</h1>
         <div className={styles.cardsContainer}>
           {products && products.map(product =>
-            <Card key={product.code} name={product.name} price={product.price} img={product.img}
+            <Card
+            // toggleFav={toggleFav} openModal={openModal}
+                  key={product.code} name={product.name} price={product.price} img={product.img}
                   color={product.color} code={product.code} isFavourite={product.isFavourite}
             />)}
         </div>

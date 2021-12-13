@@ -6,16 +6,18 @@ import React, {useEffect, useState} from 'react';
 import {getProductsData} from "../../appStore/actionCreators";
 import {ReactComponent as Favourite} from '../../icons/favourite.svg';
 import {ReactComponent as FavouriteActive} from '../../icons/fav_active.svg';
+import {toggleIsFavourite} from "../../appStore/actionCreators";
 
 
 const Card = (props) => {
   const {name, price, img, code, color, isFavourite } = props;
+  const dispatch = useDispatch();
 
 
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.favourites} onClick={() => {
-        // toggleFav(name);
+        dispatch(toggleIsFavourite(code));
       }} >
         {isFavourite ? <FavouriteActive/> : <Favourite/>}
       </div>

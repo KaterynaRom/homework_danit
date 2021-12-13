@@ -13,27 +13,6 @@ import {getProductsData} from "./appStore/actionCreators";
 
 const App = () => {
 
-  // const products = useSelector((store) => store.card.products, shallowEqual);
-  // const dispatch = useDispatch();
-  //
-  // useEffect(() => {
-  //   dispatch(getProductsData());
-  // },[]);
-
-  // useEffect(() => {
-  //   (async() => {
-  //     const response = await fetch('./productsList.json')
-  //       .then(response => response.json());
-  //
-  //     const favStatus = localStorage.getItem('favourites') || [];
-  //     response.forEach(prod => prod.isFavourite = favStatus.includes(prod.code));
-  //     setProducts(response);
-  //
-  //     const cartStatusLS = JSON.parse(localStorage.getItem('cart'));
-  //     if (cartStatusLS) {setCart(cartStatusLS)}
-  //   })()
-  // },[]);
-
   return (
     <Provider store={store}>
       <BrowserRouter>

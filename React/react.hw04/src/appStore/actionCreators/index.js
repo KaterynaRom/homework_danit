@@ -8,13 +8,11 @@ export const getProductsData = () => async (dispatch) => {
       dispatch({type: GET_PRODUCTS_DATA, payload: response})
 }
 
-// export const saveCartFromLS = () => (dispatch) => {
-//       const cartStatusLS = JSON.parse(localStorage.getItem('cart'));
-//       if (cartStatusLS) {dispatch({type:SAVE_CART_FROM_LS, payload:cartStatusLS})}
-// }
-//
-// export const toggleIsFavourite = (code) => async (dispatch) => {
-//
-//       // dispatch({type:TOGGLE_IS_FAVOURITE_CARDS, payload: code})
-// }
+export const saveCartFromLS = () => (dispatch) => {
+      const cartStatusLS = JSON.parse(localStorage.getItem('cart'));
+      if (cartStatusLS) {dispatch({type:SAVE_CART_FROM_LS, payload:cartStatusLS})}
+}
+
+export const toggleIsFavourite = (products, code) => (dispatch) => {
+      dispatch({type:TOGGLE_IS_FAVOURITE_CARDS, payload: products}) };
 
