@@ -20,7 +20,7 @@ const HomePage = () => {
       <div className={styles.wrapper}>
         <h1>Home Page</h1>
         <div className={styles.cardsContainer}>
-          {products && products.map(product =>
+          {products.length > 0 && products.map(product =>
             <Card
             // toggleFav={toggleFav} openModal={openModal}
                   key={product.code} name={product.name} price={product.price} img={product.img}

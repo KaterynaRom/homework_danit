@@ -16,9 +16,9 @@ const Card = (props) => {
 
   return (
     <div className={styles.cardWrapper}>
-      <div className={styles.favourites} onClick={() => {
-        // dispatch(toggleIsFavourite(code));
-      }} >
+      <div className={styles.favourites}
+           onClick={() => {dispatch(toggleIsFavourite(code))}}
+      >
         {isFavourite ? <FavouriteActive/> : <Favourite/>}
       </div>
       <p className={styles.name}>{name}</p>
