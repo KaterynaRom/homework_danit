@@ -18,12 +18,12 @@ const cardReducer = (state = initialState, {type, payload}) => {
       if (idIndex === -1) {
         return state;
       } else  {
-          console.log('hhhh', payload)
+          // console.log('hhhh', payload)
         const newItems = [...state.products];
         newItems[idIndex].isFavourite = !newItems[idIndex].isFavourite;
-          console.log('isFavourite', !newItems[idIndex].isFavourite);
+          // console.log('isFavourite', !newItems[idIndex].isFavourite);
         saveFavToLS(newItems);
-          console.log(newItems);
+          // console.log(newItems);
 
         return {...state, products: newItems};
       }

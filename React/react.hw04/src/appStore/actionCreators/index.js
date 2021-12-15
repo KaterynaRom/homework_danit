@@ -1,6 +1,7 @@
 import {GET_PRODUCTS_DATA, SAVE_CART_FROM_LS, TOGGLE_IS_FAVOURITE_CARDS} from "../actions";
 import {SET_IS_OPEN_MODAL, SET_MODAL_CONTENT} from "../actions";
 import {cartStatusLS} from "../../utils/utils";
+import {useEffect} from "react";
 
 export const getProductsData = () => async (dispatch) => {
       const response = await fetch('./productsList.json')
@@ -14,7 +15,10 @@ export const saveCartFromLS = () => (dispatch) => {
       if (cartStatusLS) {dispatch({type:SAVE_CART_FROM_LS, payload:cartStatusLS})}
 }
 
-export const toggleIsFavourite = (products) => ({ type: TOGGLE_IS_FAVOURITE_CARDS, payload: products });
+export const toggleIsFavourite = (products) => (dispatch) => {
+            dispatch(getProductsData());
+      dispatch({type: TOGGLE_IS_FAVOURITE_CARDS, payload: products});
+}
 
 export const setIsOpenModal = (isOpenModal) => ({type: SET_IS_OPEN_MODAL, payload: isOpenModal});
 export const setModalContent = (isAddModal) => ({type: SET_MODAL_CONTENT, payload: isAddModal});
