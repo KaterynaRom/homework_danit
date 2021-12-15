@@ -12,7 +12,7 @@ const Card = (props) => {
   const {name, price, img, code, color, isFavourite } = props;
   const dispatch = useDispatch();
 
-  const isOpenModal = useSelector((store) => store.modal.isOpenModal, shallowEqual);
+  // const isOpenModal = useSelector((store) => store.modal.isOpenModal, shallowEqual);
 
   return (
     <div className={styles.cardWrapper}>

@@ -7,14 +7,17 @@ import Header from './components/Heder/Header';
 import modalContent from './config/modalContent';
 import Button from './components/Button/Button';
 import buttonModal from './config/buttonModal';
-import {Provider, shallowEqual, useDispatch, useSelector} from "react-redux";
-import store from "./appStore";
+import {shallowEqual, useDispatch, useSelector} from "react-redux";
 import {getProductsData} from "./appStore/actionCreators";
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProductsData());
+  },[]);
 
   return (
-    <Provider store={store}>
       <BrowserRouter>
         <div className={styles.wrapper}>
           <Header/>
@@ -22,7 +25,6 @@ const App = () => {
           <Modal/>
         </div>
       </BrowserRouter>
-    </Provider>
   )
 }
 
