@@ -6,7 +6,7 @@ import React, {useEffect, useState} from 'react';
 import {getProductsData, setIsOpenModal} from "../../appStore/actionCreators";
 import {ReactComponent as Favourite} from '../../icons/favourite.svg';
 import {ReactComponent as FavouriteActive} from '../../icons/fav_active.svg';
-import {toggleIsFavourite} from "../../appStore/actionCreators";
+import {toggleIsFavourite, addToCart} from "../../appStore/actionCreators";
 
 const Card = (props) => {
   const {name, price, img, code, color, isFavourite } = props;
@@ -27,7 +27,10 @@ const Card = (props) => {
       <p className={styles.colorProduct}>color: {color}</p>
       <p className={styles.code}>Code: {code}</p>
       <Button
-        onClick={() => dispatch(setIsOpenModal(true))}
+        onClick={() => {
+          dispatch(addToCart({name, img, code}))
+        }}
+        // onClick={() => dispatch(setIsOpenModal(true))}
         className={styles.buttonAdd} text={buttons[0].text}/>
     </div>
   )

@@ -10,3 +10,7 @@ export const saveFavToLS = (products) => {
 }
 
 export const cartStatusLS = JSON.parse(localStorage.getItem('cart'));
+
+export const saveCartToLS = (name, value) => {
+  localStorage.setItem(name, JSON.stringify(value));
+}

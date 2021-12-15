@@ -2,12 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {Provider, shallowEqual, useDispatch, useSelector} from "react-redux";
+import {Provider} from "react-redux";
 import store from "./appStore";
 
 
 ReactDOM.render(
-
-  <Provider store={store}><App /></Provider>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 );
