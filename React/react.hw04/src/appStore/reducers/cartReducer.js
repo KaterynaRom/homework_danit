@@ -7,9 +7,7 @@ const initialState = {
 
 const cartReducer = (state = initialState, {type, payload}) => {
   switch (type) {
-    case SAVE_CART_FROM_LS: {
-      return {...state, cart: payload }
-    }
+
     case ADD_TO_CART: {
       const newCartProducts = [...state.cart];
       const index = newCartProducts.findIndex(el => el.code === payload.code);
@@ -23,6 +21,10 @@ const cartReducer = (state = initialState, {type, payload}) => {
       newCartProducts[index].count = newCartProducts[index].count + 1;
       saveCartToLS('cart', newCartProducts);
       return {...state, cartItems: newCartProducts};
+    }
+
+    case SAVE_CART_FROM_LS: {
+      return {...state, cart: payload }
     }
 
     case REMOVE_FROM_CART: {

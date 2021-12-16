@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './CartProduct.module.scss';
-import {shallowEqual, useDispatch, useSelector} from "react-redux";
 
 const CartProduct = (prop) => {
   const {name, img, code, count} = prop;

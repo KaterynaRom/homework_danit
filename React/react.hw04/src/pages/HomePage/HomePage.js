@@ -3,8 +3,6 @@ import React, {useEffect, useState} from 'react';
 import {shallowEqual, useDispatch, useSelector} from "react-redux";
 import Card from "../../components/Card/Card";
 
-
-
 const HomePage = () => {
   const products = useSelector((store) => store.card.products, shallowEqual);
 

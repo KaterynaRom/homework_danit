@@ -6,16 +6,20 @@ import {
       REMOVE_FROM_CART,
       SET_IS_OPEN_MODAL,
       SET_MODAL_CONTENT} from "../actions";
-
 import {cartStatusLS} from "../../utils/utils";
+
+
 
 export const getProductsData = () => async (dispatch) => {
       const response = await fetch('./productsList.json')
         .then(response => response.json());
       const favStatus = localStorage.getItem('favourites') || [];
       response.forEach(prod => prod.isFavourite = favStatus.includes(prod.code));
+            dispatch(saveCartFromLS(cartStatusLS));
       dispatch({type: GET_PRODUCTS_DATA, payload: response})
 }
+
+const saveCartFromLS = (cartFromLS) => ({type: SAVE_CART_FROM_LS, payload: cartFromLS});
 
 export const toggleIsFavourite = (products) => (dispatch) => {
             dispatch(getProductsData());
@@ -25,12 +29,6 @@ export const toggleIsFavourite = (products) => (dispatch) => {
 export const addToCart = (cartProduct) => ({
       type: ADD_TO_CART, payload: cartProduct
 })
-
-
-
-export const saveCartFromLS = () => (dispatch) => {
-      if (cartStatusLS) {dispatch({type:SAVE_CART_FROM_LS, payload:cartStatusLS})}
-}
 
 export const setIsOpenModal = (isOpenModal) => ({type: SET_IS_OPEN_MODAL, payload: isOpenModal});
 export const setModalContent = (isAddModal) => ({type: SET_MODAL_CONTENT, payload: isAddModal});
