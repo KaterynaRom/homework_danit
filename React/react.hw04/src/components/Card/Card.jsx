@@ -12,8 +12,6 @@ const Card = (props) => {
   const {name, price, img, code, color, isFavourite } = props;
   const dispatch = useDispatch();
 
-  // const isOpenModal = useSelector((store) => store.modal.isOpenModal, shallowEqual);
-
   return (
     <div className={styles.cardWrapper}>
       <div className={styles.favourites}
@@ -28,9 +26,8 @@ const Card = (props) => {
       <p className={styles.code}>Code: {code}</p>
       <Button
         onClick={() => {
-          dispatch(addToCart({name, img, code}))
+          dispatch(addToCart({name, img, code}));
         }}
-        // onClick={() => dispatch(setIsOpenModal(true))}
         className={styles.buttonAdd} text={buttons[0].text}/>
     </div>
   )
