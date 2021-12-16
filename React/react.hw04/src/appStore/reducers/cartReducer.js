@@ -15,7 +15,6 @@ const cartReducer = (state = initialState, {type, payload}) => {
       if (index === -1) {
         const newProd = {...payload, count: 1}
         saveCartToLS('cart', [...state.cart, newProd]);
-
         return {...state, cart: [...state.cart, newProd]}
       }
       newCartProducts[index].count = newCartProducts[index].count + 1;
@@ -28,7 +27,15 @@ const cartReducer = (state = initialState, {type, payload}) => {
     }
 
     case REMOVE_FROM_CART: {
-      return ;
+        const newCartProducts = [...state.cart];
+        const index = newCartProducts.findIndex(el => el.code === payload);
+
+        if (index === -1) {
+          return {...state}
+        }
+        newCartProducts.splice(index, 1);
+        saveCartToLS('cart', newCartProducts);
+        return {...state, cart: newCartProducts};
     }
 
     default: return state
