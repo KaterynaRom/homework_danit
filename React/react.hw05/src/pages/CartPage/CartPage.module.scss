@@ -1,5 +1,24 @@
 .wrapper {
   display: flex;
+  padding: 20px;
+  align-items: flex-start;
+}
+
+.form {
+  width: 25%;
+  border: black 1px dotted;
+}
+
+.form > h1 {
+  margin: 5px;
+}
+
+.cart {
+  width: 75%;
+}
+
+.form, .cart {
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
