@@ -13,3 +13,7 @@ export const SAVE_CART_FROM_LS = 'SAVE_CART_FROM_LS';
 export const SET_IS_OPEN_MODAL = 'SET_IS_OPEN_MODAL';
 export const SET_MODAL_PARAMS = 'SET_MODAL_PARAMS';
 
+//user
+export const GET_USER_INFO = 'GET_USER_INFO';
+export const GET_ORDER_INFO = 'GET_ORDER_INFO';
+

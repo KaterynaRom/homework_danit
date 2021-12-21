@@ -1,14 +1,7 @@
-import {
-      GET_PRODUCTS_DATA,
-      SAVE_CART_FROM_LS,
-      TOGGLE_IS_FAVOURITE_CARDS,
-      ADD_TO_CART,
-      REMOVE_FROM_CART,
-      SET_IS_OPEN_MODAL,
-      SET_MODAL_PARAMS,
-SET_MODAL_FN, SET_IS_ADD_MODAL} from "../actions";
+import {GET_PRODUCTS_DATA, SAVE_CART_FROM_LS, TOGGLE_IS_FAVOURITE_CARDS,
+      ADD_TO_CART, REMOVE_FROM_CART, SET_IS_OPEN_MODAL, SET_MODAL_PARAMS,
+      GET_USER_INFO, GET_ORDER_INFO} from "../actions";
 import {cartStatusLS} from "../../utils/utils";
-
 
 //prod
 export const getProductsData = () => async (dispatch) => {
@@ -40,7 +33,10 @@ export const removeFromCart = (code) => ({
 
 //modal
 export const setIsOpenModal = (isOpenModal) => ({type: SET_IS_OPEN_MODAL, payload: isOpenModal});
-
 export const setModalParams = (value) => ({ type: SET_MODAL_PARAMS, payload: value });
+
+//user
+export const getUserInfo = () => {}
+export const getOrderInfo = () => {}
 
 
