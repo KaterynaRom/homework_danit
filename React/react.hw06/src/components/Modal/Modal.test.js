@@ -1,20 +1,26 @@
 import Modal from './Modal';
 import { render } from '@testing-library/react';
 import store from "../../appStore";
-import {Provider} from "react-redux";
+import {Provider, useDispatch} from "react-redux";
+import {setModalParams, setIsOpenModal} from "../../appStore/actionCreators";
 
 const Component = () => {
+  const dispatch = useDispatch();
 
-  return (
-    <Provider store={store} >
-      <Modal />
-    </Provider>
-  )
+  dispatch(setModalParams('testCode'));
+  dispatch(setIsOpenModal(true));
+
+  return (<Modal />)
 }
 
 describe("Modal render", () => {
   test("should modal render", ()=> {
-    const {asFragment} = render(<Component/>)
+    const {asFragment} = render(
+      <Provider store={store}>
+        <Component/>
+      </Provider>
+    )
     expect(asFragment()).toMatchSnapshot()
   })
 });
+

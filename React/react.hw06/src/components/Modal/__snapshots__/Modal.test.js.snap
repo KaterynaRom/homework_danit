@@ -1,3 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Modal render should modal render 1`] = `<DocumentFragment />`;
+exports[`Modal render should modal render 1`] = `
+<DocumentFragment>
+  <div
+    class="modalWrapper"
+  >
+    <div
+      class="background"
+    />
+    <div
+      class="modal"
+    >
+      <button>
+        ✖
+      </button>
+      <div
+        class="titleWrapper"
+      >
+        <div
+          class="title"
+        >
+          Confirm Action
+        </div>
+      </div>
+      <div
+        class="text"
+      >
+        Are you sure you want to remove the product?
+      </div>
+      <div
+        class="buttons"
+      >
+        <button>
+          Yes
+        </button>
+        <button>
+          No
+        </button>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
