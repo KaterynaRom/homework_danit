@@ -1,5 +1,5 @@
 import Button from "./Button"
-import {queryAllByRole, render} from "@testing-library/react";
+import {queryByRole, render} from "@testing-library/react";
 const handleClick = jest.fn();
 
 const Component = (props) => (
@@ -14,11 +14,11 @@ describe("Button render", () => {
 
 describe("Button click", () => {
   test("should click on button work", () => {
-    const {queryAllByRole} = render(<Component onClick={handleClick}/>)
-    const buttons = queryAllByRole('button');
+    const {queryByRole} = render(<Component onClick={handleClick}/>)
+    const buttons = queryByRole('button');
     console.log('buttons', buttons)
-    // buttons.click();
-    // expect(handleClick).toBeCalled();
+    buttons.click();
+    expect(handleClick).toBeCalled();
   })
 })
 
